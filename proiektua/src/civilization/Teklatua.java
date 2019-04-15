@@ -13,19 +13,16 @@ public class Teklatua {
 		}
 		return nireTeklatua;
 	}
-	public int irakurriZenb()throws NumberFormatException{
-
+	public int irakurriKoordenatua(int max){
 		try{
 			String sar=this.sc.nextLine();
 			int zenb =Integer.parseInt(sar);
-			return zenb;
+			if(max>=zenb||zenb>=1)return zenb;
+			throw new NumberFormatException();
 		}catch(NumberFormatException nFE){
 			nFE.printStackTrace();
 			System.out.println("Berriro");
-			return this.irakurriZenb();
+			return this.irakurriKoordenatua(max);
 		}
-	}
-	public void irakurriKoordenatuak(){
-		hdfhdfahnfghfsgfgsha
 	}
 }
