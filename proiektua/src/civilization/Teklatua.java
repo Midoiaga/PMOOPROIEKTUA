@@ -13,6 +13,7 @@ public class Teklatua {
 		}
 		return nireTeklatua;
 	}
+	
 	public int irakurriKoordenatua(int max){
 		try{
 			String sar=this.sc.nextLine();
