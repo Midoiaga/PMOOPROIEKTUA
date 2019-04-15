@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 public class ListaEraikinak {
 	
+	//atrib
 	private ArrayList<Eraikina> dituzunEraikinak;
 	private ArrayList<Eraikina> bezteEraikinak;
 	
@@ -13,7 +14,7 @@ public class ListaEraikinak {
 	}
 	
 	public void printFalta() {
-		
+		//zein eraikinak eraiki dezakeen jokalariak
 		System.out.println("Eta eraikin hauek eraiki ditzazkezu:");
 		int i = 0;
 		while(i<bezteEraikinak.size()) {
@@ -24,6 +25,7 @@ public class ListaEraikinak {
 	
 	
 	public void printDaudenak() {
+		//dauden eraikinen informazioa printeatu
 		Iterator<Eraikina> itr = this.getIteradorea();
 		Eraikina e = null;
 		System.out.println("Eraikin hauek dituzu jada:");
