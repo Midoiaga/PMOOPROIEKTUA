@@ -17,5 +17,8 @@ public class Teklatua {
 		String sar=this.sc.nextLine();
 		int zenb =Integer.parseInt(sar);
 		return zenb;
+		
 	}
+	public void dfjadsljfhd(){
+}
 }
