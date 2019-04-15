@@ -18,7 +18,7 @@ public class Gerlaria {
 
 	public int aukerak(int pUrrea) {
 		this.printAukerak();
-		String aukera = Teklatu.getNireTeclatu().getAukerak("Gerlari Aukerak");
+		String aukera = Teklatu.getNireTeklatua().getAukerak("Gerlari Aukerak");
 		switch(aukera) {
 		case"Bisitza":
 			if(!this.HP.mailaMaxDauka()) {
