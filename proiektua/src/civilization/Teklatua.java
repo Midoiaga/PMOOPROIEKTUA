@@ -14,11 +14,18 @@ public class Teklatua {
 		return nireTeklatua;
 	}
 	public int irakurriZenb()throws NumberFormatException{
-		String sar=this.sc.nextLine();
-		int zenb =Integer.parseInt(sar);
-		return zenb;
+
+		try{
+			String sar=this.sc.nextLine();
+			int zenb =Integer.parseInt(sar);
+			return zenb;
+		}catch(NumberFormatException nFE){
+			nFE.printStackTrace();
+			System.out.println("Berriro");
+			return this.irakurriZenb();
+		}
+	}
+	public void irakurriKoordenatuak(){
 		
 	}
-	public void dfjadsljfhd(){
-}
 }
