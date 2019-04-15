@@ -1,10 +1,11 @@
 # PMOOPROIEKTUA
 ################################################################
+
 PMOO irakasgaierako guk egindako jokoa.
 
 Civilization jolasetan oinarrituta eta terminalean 
 exekutatuko dena
 
-<b>Egileak<b/>
+<b>Egileak</b>
 
 ################################################################
