@@ -26,6 +26,6 @@ public class Teklatua {
 		}
 	}
 	public void irakurriKoordenatuak(){
-		
+		dsdasfassfhgahfd
 	}
 }
