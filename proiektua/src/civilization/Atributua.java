@@ -2,6 +2,7 @@ package civilization;
 
 public abstract class Atributua {
 	
+	//atrib
 	private int maila;
 	private int mailaMax;
 	private int urreKost;

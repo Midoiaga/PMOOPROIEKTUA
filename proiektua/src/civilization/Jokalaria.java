@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Jokalaria {
 	
+	//atrib
 	private ArrayList<Hiria> hiriak;
 	private ArrayList<Gerlaria> gerlariak;
 	private String izena;
@@ -22,7 +23,7 @@ public class Jokalaria {
 	}
 	
 	private void hiriakAdministratu() {
-		
+		//izenaren arabera hiriak administratu
 		ArrayList<Hiria> listaHiri = hiriak;
 		Hiria h = null;
 		while(listaHiri.size()>0) {
