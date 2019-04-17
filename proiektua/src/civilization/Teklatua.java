@@ -13,8 +13,7 @@ public class Teklatua {
 		}
 		return nireTeklatua;
 	}
-<<<<<<< HEAD
-	
+
 	public int irakurriKoordenatua(int max){
 		try{
 			String sar=this.sc.nextLine();
@@ -27,14 +26,12 @@ public class Teklatua {
 			return this.irakurriKoordenatua(max);
 		}
 	}
-=======
 	public int irakurriZenb()throws NumberFormatException{
 		String sar=this.sc.nextLine();
 		int zenb =Integer.parseInt(sar);
 		return zenb;
-		
+
 	}
-	public void dfjadsljfhd(){
-}
->>>>>>> refs/remotes/origin/master
+	//public void dfjadsljfhd(){
+	//}
 }
