@@ -120,5 +120,9 @@ public class Jokalaria {
 		}
 		return false;
 	}
+
+	public int hiriKop() {
+		return this.hiriak.size();
+	}
 	
 }
