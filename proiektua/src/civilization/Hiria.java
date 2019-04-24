@@ -83,4 +83,9 @@ public class Hiria {
 		if(this.posX==i&&this.posY==j) return true;
 		else return false;
 	}
+
+	public String getIzena() {
+		return this.izena;
+	}
+
 }

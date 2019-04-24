@@ -32,7 +32,7 @@ public class Jokalaria {
 			while(i<listaHiri.size()) {
 				listaHiri.get(i).print();
 			}
-			String aukera = Teklatu.getNireTeclatu().getAukerak("Administratu Aukerak");
+			String aukera = Teklatu.getNireTeklatu().getAukerak("Administratu Aukerak");
 			h = this.bilatuHiriaIzen(aukera);
 			h.administratu();
 			listaHiri.remove(h);
@@ -53,7 +53,7 @@ public class Jokalaria {
 		Gerlaria g = null;
 		while(listaGer.size()>0) {
 			
-			String aukera = Teklatu.getNireTeclatu().getAukerak("Mugitu Aukerak");
+			String aukera = Teklatu.getNireTeklatu().getAukerak("Mugitu Aukerak");
 			g = this.bilatuGerlariaIzen(aukera);
 			g.mugitu();
 			listaGer.remove(g);
@@ -123,6 +123,18 @@ public class Jokalaria {
 
 	public int hiriKop() {
 		return this.hiriak.size();
+	}
+
+	public void hiriakPrint() {
+		Iterator<Hiria> itr = this.getIterHir();
+		Hiria h = null;
+		int kont = 0;
+		while(itr.hasNext()) {
+			h = itr.next();
+			hizen = h.getIzena();
+			kont++;
+			System.out.println("%d- %s", kont, hizen);
+		}
 	}
 	
 }

@@ -32,6 +32,21 @@ public class Teklatua {
 		return zenb;
 
 	}
+
+	public getAukerak(String pStr)
+	{
+		switch(pStr)
+		{
+			case "Administratu Aukerak":
+				//TODO
+				//print jokalarien hiriak
+				//irakurri administratu nahi den hiriaren izena
+				break;
+			default:
+				//ERROR??
+		}
+	}
+
 	//public void dfjadsljfhd(){
 	//}
 }
