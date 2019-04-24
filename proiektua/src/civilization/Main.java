@@ -6,7 +6,7 @@ public int Main
 	while(partida)
 	{
 		Civilization.txanda;
-		if(Civilization.amaituDa)
+		if(Civilization.amaitu)
 		{
 			partida = false;
 		}
