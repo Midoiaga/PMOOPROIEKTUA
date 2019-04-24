@@ -8,7 +8,7 @@ exekutatuko dena
 
 <ul><b>Egileak</b></ul>
 <li>Diego Benavente</li>
-<li>Mikel Idoiaga</li>
+<li>Mikel Idoyaga</li>
 <li>Oier San Roman</li>
 <li>Jon Renteria</li>
 
