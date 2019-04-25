@@ -21,9 +21,9 @@ public class Gerlaria {
 	public int aukerak(int pUrrea) {
 		//aukerak aukeratu lol
 		this.printAukerak();
-		String aukera = Teklatu.getNireTeklatua().getAukerak("Gerlari Aukerak");
+		String aukera = Teklatua.getNireTeklatua().getAukerak("Gerlari Aukerak");
 		switch(aukera) {
-		case"Bisitza":
+		case"Bizitza":
 			if(!this.HP.mailaMaxDauka()) {
 				if(this.HP.urreNahiko(pUrrea)) {
 					this.HP.gehituMaila();
@@ -87,7 +87,7 @@ public class Gerlaria {
 		int abiadura = this.V.maila();
 		System.out.println(abiadura + "kasila mugitu daiteke.");
 		System.out.println("");
-		String pos = Teklatu.getNireTeclatu().getPos();
+		String pos = Teklatua.getNireTeklatua().getPos();
 		String[] xy = pos.split(",");
 		int newPosX = Integer.parseInt(xy[0]);
 		int newPosY = Integer.parseInt(xy[1]);

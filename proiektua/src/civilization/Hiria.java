@@ -32,7 +32,7 @@ public class Hiria {
 	public void administratu() {
 		
 		System.out.println("Zer nahi duzu egin:");
-		String aukera = Teklatu.getNireTeclatu().getAukerak("Hiri Aukerak");
+		String aukera = Teklatua.getNireTeklatua().getAukerak("Hiri Aukerak");
 		switch(aukera) {
 		case "Eraiki":
 			
@@ -44,12 +44,12 @@ public class Hiria {
 			eraikinak.printFalta();
 			
 			System.out.println("Eraikin bat aukeratu :");
-			aukera = Teklatu.getNireTeclatu().getAukerak("Eraikin Aukerak");
+			aukera = Teklatua.getNireTeklatua().getAukerak("Eraikin Aukerak");
 			Eraikina eraikina = eraikinak.bilatuIzenez(aukera);
 			if(!eraikinak.ezinDaEzerEraiki(this.urrea,this.harria,this.egurra)) {
 				while(!eraikina.eraikiDaiteke(this.urrea,this.harria,this.egurra)) {
 					System.out.println("Eraikin bat aukeratu :");
-					aukera = Teklatu.getNireTeclatu().getAukerak("Eraikin Aukerak");
+					aukera = Teklatua.getNireTeklatua().getAukerak("Eraikin Aukerak");
 					eraikina = eraikinak.bilatuIzenez(aukera);
 				}
 				this.eraiki(eraikina);

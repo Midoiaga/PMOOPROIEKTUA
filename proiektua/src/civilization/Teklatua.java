@@ -30,11 +30,16 @@ public class Teklatua {
 		String sar=this.sc.nextLine();
 		int zenb =Integer.parseInt(sar);
 		return zenb;
-
+	}
+	
+	public String irakurriString() {
+		String sar = this.sc.nextLine();
+		return sar;
 	}
 
-	public getAukerak(String pStr)
+	public String getAukerak(String pStr)
 	{
+		String erantzuna = null;
 		switch(pStr)
 		{
 			case "Administratu Aukerak":
@@ -42,9 +47,16 @@ public class Teklatua {
 				//print jokalarien hiriak
 				//irakurri administratu nahi den hiriaren izena
 				break;
+			case "Gerlari Aukerak":
+				erantzuna = this.irakurriString();
+				break;
 			default:
-				//ERROR??
+				erantzuna = "Ezer";
+				break;
 		}
+		
+		return erantzuna;
+		
 	}
 
 	//public void dfjadsljfhd(){

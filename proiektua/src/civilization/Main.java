@@ -1,17 +1,14 @@
 package civilization;
 
-public int Main 
+public class Main
 {
-	boolean partida = true;
-	while(partida)
+	public static int main(String args[])
 	{
-		Civilization.txanda;
-		if(Civilization.amaitu)
-		{
-			partida = false;
-		}
+		Civilization civ = Civilization.getNirePartida();
+		
+		civ.partida();
+		
+		return 0;
 	}
-
-	return 0;
-
+	
 }
