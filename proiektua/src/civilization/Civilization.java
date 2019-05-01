@@ -1,8 +1,11 @@
 package civilization;
 
+import java.awt.EventQueue;
+import java.util.ArrayList;
+
 public class Civilization {
 
-	private Jokalaria[] jokalariak;
+	private ArrayList<Jokalaria> jokalariak;
 
 	private static Civilization nirePartida = null;
 

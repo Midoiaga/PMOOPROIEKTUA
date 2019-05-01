@@ -64,6 +64,7 @@ public class Hiria {
 			}
 			this.administratu();
 			break;
+			
 		case "Gerlaria":
 			if(!this.gerlariaDago()) System.out.println("Ez dago gerlaririk hiri honetan");
 			else this.urrea = this.gerlaria.aukerak(this.urrea);
@@ -76,7 +77,7 @@ public class Hiria {
 	}
 	
 	private boolean gerlariaDago() {
-		// TODO Auto-generated method stub
+		// TODO
 		return false;
 	}
 
@@ -87,7 +88,7 @@ public class Hiria {
 		this.harria = this.harria-pEraikina.getHarriKost();
 	}
 
-	public boolean izenAuDu(String pIzena) {
+	public boolean izenHauDu(String pIzena) {
 		if(this.izena==pIzena) return true;
 		return false;		
 	}

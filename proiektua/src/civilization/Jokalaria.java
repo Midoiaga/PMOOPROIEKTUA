@@ -69,7 +69,7 @@ public class Jokalaria {
 		Gerlaria g = null;
 		while(itr.hasNext()) {
 			g = itr.next();
-			if(g.izenAuDu(pAukera)) return g;
+			if(g.izenHauDu(pAukera)) return g;
 		}
 		return null;
 	}
