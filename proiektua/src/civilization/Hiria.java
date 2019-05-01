@@ -77,7 +77,12 @@ public class Hiria {
 	}
 	
 	private boolean gerlariaDago() {
-		// TODO
+		// TODO, yo diria que ya esta
+		// aunque no sé desde donde se crean los gerlaris
+		// desde la hiria o desde fuera y luego se les pasa a la hiria en el eraikitzaile??
+		if(this.gerlaria!=null) {
+			return true;
+		}
 		return false;
 	}
 

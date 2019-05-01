@@ -74,25 +74,27 @@ public class Jokalaria {
 		return null;
 	}
 
-	private void printGerlarienPos() {
-		System.out.println("Zure gerlariak :");
-		for(int i = 0; i<gerlariak.size();i++)
-			this.gerlariak.get(i).printGerlaria();
-	}
+	//private void printGerlarienPos() {
+	//	//esto sobra no?? por lo menos tal
+	//	//y como esta implementado
+	//	System.out.println("Zure gerlariak :");
+	//	for(int i = 0; i<gerlariak.size();i++)
+	//		this.gerlariak.get(i).printGerlaria();
+	//}
 
 	private Hiria bilatuHiriaIzen(String pAukera) {
 		Iterator<Hiria> itr = this.getIterHir();
 		Hiria h = null;
 		while(itr.hasNext()) {
 			h = itr.next();
-			if(h.izenAuDu(pAukera)) return h;
+			if(h.izenHauDu(pAukera)) return h;
 		}
 		return null;
 	}
 
-	private Iterator<Gerlaria> getIterGer(){
-		return this.gerlariak.iterator();
-	}
+	//private Iterator<Gerlaria> getIterGer(){
+	//	return this.gerlariak.iterator();
+	//}
 	
 	private Iterator<Hiria> getIterHir(){
 		return this.hiriak.iterator();
