@@ -32,7 +32,11 @@ public class Hiria {
 	public void administratu() {
 		
 		System.out.println("Zer nahi duzu egin:");
-		String aukera = Teklatua.getNireTeklatua().getAukerak("Hiri Aukerak");
+		ArrayList<String> aukerak = new ArrayList<String>();
+		aukerak.add("Eraiki");
+		aukerak.add("Gerlaria");
+		aukerak.add("Ezer");
+		String aukera = Teklatua.getNireTeklatua().getAukerak(aukerak);
 		switch(aukera) {
 		case "Eraiki":
 			
@@ -44,20 +48,24 @@ public class Hiria {
 			eraikinak.printFalta();
 			
 			System.out.println("Eraikin bat aukeratu :");
-			aukera = Teklatua.getNireTeklatua().getAukerak("Eraikin Aukerak");
+			aukera = Teklatua.getNireTeklatua().getAukerak(Aukerak.getAukerak().aukerakFiltro("EraikinIzenak"));
 			Eraikina eraikina = eraikinak.bilatuIzenez(aukera);
+			
+			//Exceptions y cosas
+			
+			
+			
 			if(!eraikinak.ezinDaEzerEraiki(this.urrea,this.harria,this.egurra)) {
 				while(!eraikina.eraikiDaiteke(this.urrea,this.harria,this.egurra)) {
-					System.out.println("Eraikin bat aukeratu :");
-					aukera = Teklatua.getNireTeklatua().getAukerak("Eraikin Aukerak");
 					eraikina = eraikinak.bilatuIzenez(aukera);
+					aukera = Teklatua.getNireTeklatua().getAukerak(Aukerak.getAukerak().aukerakFiltro("EraikinIzenak"));
 				}
 				this.eraiki(eraikina);
 			}
 			this.administratu();
 			break;
 		case "Gerlaria":
-			if(this.gerlaria==null) System.out.println("Ez dago gerlaririk hiri honetan");
+			if(!this.gerlariaDago()) System.out.println("Ez dago gerlaririk hiri honetan");
 			else this.urrea = this.gerlaria.aukerak(this.urrea);
 			this.administratu();
 			break;
@@ -67,6 +75,11 @@ public class Hiria {
 		
 	}
 	
+	private boolean gerlariaDago() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 	private void eraiki(Eraikina pEraikina) {
 		this.eraikinak.gehitu(pEraikina);
 		this.egurra = this.egurra-pEraikina.getEgurreKost();
@@ -87,5 +100,4 @@ public class Hiria {
 	public String getIzena() {
 		return this.izena;
 	}
-
 }

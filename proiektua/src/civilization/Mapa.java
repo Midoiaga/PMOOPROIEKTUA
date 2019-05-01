@@ -76,4 +76,12 @@ public class Mapa {
 		System.out.println("");
 		System.out.println("+------------------------------------+");
 	}
+
+	public int maxX() {
+		return this.mapa.length;
+	}
+	
+	public int maxY() {
+		return this.mapa[1].length;
+	}
 }

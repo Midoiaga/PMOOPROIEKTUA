@@ -8,12 +8,12 @@ public class Jokalaria {
 	
 	//atrib
 	private ArrayList<Hiria> hiriak;
-	private ArrayList<Gerlaria> gerlariak;
+	//private ArrayList<Gerlaria> gerlariak;
 	private String izena;
 	
 	public Jokalaria(String pIzena) {
 		this.hiriak = new ArrayList<Hiria>();
-		this.gerlariak = new ArrayList<Gerlaria>();
+		//this.gerlariak = new ArrayList<Gerlaria>();
 		this.izena = pIzena;
 	}
 	
@@ -32,20 +32,24 @@ public class Jokalaria {
 			while(i<listaHiri.size()) {
 				listaHiri.get(i).print();
 			}
-			String aukera = Teklatua.getNireTeklatua().getAukerak("Administratu Aukerak");
+			String aukera = Teklatua.getNireTeklatua().getAukerak(this.hiriIzenLista());
 			h = this.bilatuHiriaIzen(aukera);
 			h.administratu();
 			listaHiri.remove(h);
 		}
 	}
 	
+	private ArrayList<String> hiriIzenLista() {
+		ArrayList<String> izenak = new ArrayList<String>();
+		for(Hiria h : this.hiriak)izenak.add(h.getIzena());
+		return izenak;
+	}
+
 	public void gehituHiria(Hiria pHiria) {
 		this.hiriak.add(pHiria);
 	}
 
-	public void gehituGerlaria(Gerlaria pGerlaria) {
-		this.gerlariak.add(pGerlaria);
-	}
+	
 	
 	private void gerlariakMugitu() {
 		this.printGerlarienPos();
@@ -53,7 +57,7 @@ public class Jokalaria {
 		Gerlaria g = null;
 		while(listaGer.size()>0) {
 			
-			String aukera = Teklatua.getNireTeklatua().getAukerak("Mugitu Aukerak");
+			String aukera = Teklatua.getNireTeklatua().getAukerak();
 			g = this.bilatuGerlariaIzen(aukera);
 			g.mugitu();
 			listaGer.remove(g);
@@ -65,7 +69,7 @@ public class Jokalaria {
 		Gerlaria g = null;
 		while(itr.hasNext()) {
 			g = itr.next();
-			if(g.izenHauDu(pAukera)) return g;
+			if(g.izenAuDu(pAukera)) return g;
 		}
 		return null;
 	}
@@ -123,19 +127,6 @@ public class Jokalaria {
 
 	public int hiriKop() {
 		return this.hiriak.size();
-	}
-
-	public void hiriakPrint() {
-		Iterator<Hiria> itr = this.getIterHir();
-		Hiria h = null;
-		int kont = 0;
-		String hizen = null;
-		while(itr.hasNext()) {
-			h = itr.next();
-			hizen = h.getIzena();
-			kont++;
-			System.out.println(kont + "- " + hizen);
-		}
 	}
 	
 }

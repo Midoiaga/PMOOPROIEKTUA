@@ -1,4 +1,5 @@
 package civilization;
+import java.util.ArrayList;
 import java.util.Scanner;
 public class Teklatua {
 	private Scanner sc;
@@ -30,35 +31,18 @@ public class Teklatua {
 		String sar=this.sc.nextLine();
 		int zenb =Integer.parseInt(sar);
 		return zenb;
-	}
-	
-	public String irakurriString() {
-		String sar = this.sc.nextLine();
-		return sar;
-	}
 
-	public String getAukerak(String pStr)
-	{
-		String erantzuna = null;
-		switch(pStr)
-		{
-			case "Administratu Aukerak":
-				//TODO
-				//print jokalarien hiriak
-				//irakurri administratu nahi den hiriaren izena
-				break;
-			case "Gerlari Aukerak":
-				erantzuna = this.irakurriString();
-				break;
-			default:
-				erantzuna = "Ezer";
-				break;
-		}
-		
-		return erantzuna;
-		
 	}
-
 	//public void dfjadsljfhd(){
 	//}
+	public String getAukerak(ArrayList<String> arrayList) {
+		String sar=this.sc.nextLine();
+		try {
+			if(arrayList.contains(sar))return sar;
+			throw new HiriaEzDagoException();
+		}catch(HiriaEzDagoException hEDE) {
+			hEDE.printStackTrace();
+			return this.getAukerak(arrayList);
+		}
+	}
 }

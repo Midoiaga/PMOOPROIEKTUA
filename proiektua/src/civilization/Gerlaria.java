@@ -21,7 +21,7 @@ public class Gerlaria {
 	public int aukerak(int pUrrea) {
 		//aukerak aukeratu lol
 		this.printAukerak();
-		String aukera = Teklatua.getNireTeklatua().getAukerak("Gerlari Aukerak");
+		String aukera = Teklatua.getNireTeklatua().getAukerak(Aukerak.getAukerak().aukerakFiltro("Stats"));
 		switch(aukera) {
 		case"Bizitza":
 			if(!this.HP.mailaMaxDauka()) {
@@ -30,6 +30,7 @@ public class Gerlaria {
 					pUrrea = this.HP.urreBerria(pUrrea);
 				}
 			}
+			
 			break;
 		case"Indarra":
 			if(!this.A.mailaMaxDauka()) {
@@ -64,14 +65,14 @@ public class Gerlaria {
 	private void printAukerak() {
 		//jokalariak egin ditzakeen akzioak printeatzen ditu
 		System.out.println(this.izena + " hobetzeko dituzun aukerak hauek dira:");
-		if(!this.HP.mailaMaxDauka()) System.out.println("-Bisitza");
+		if(!this.HP.mailaMaxDauka()) System.out.println("-Bizitza");
 		if(!this.A.mailaMaxDauka()) System.out.println("-Indarra");
 		if(!this.D.mailaMaxDauka()) System.out.println("-Defentza");
 		if(!this.V.mailaMaxDauka()) System.out.println("-Abiadura");
 	}
 	
 	public void printGerlaria() {
-		//gerlariari buruzko informazioa printeatzen ditu
+		//gerlariari buruzko informazioa printeatzen ditu (pos)
 		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago.");
 		
 	}
@@ -83,18 +84,21 @@ public class Gerlaria {
 	}
 
 	public void mugitu() {
-		//gerlaria mugitu
+		/*
+		 * gerlaria mugitu
+		 * azkarregia bada mezu bat pantailaratu
+		 * eta berriro saiatu
+		 */
 		int abiadura = this.V.maila();
 		System.out.println(abiadura + "kasila mugitu daiteke.");
 		System.out.println("");
-		String pos = Teklatua.getNireTeklatua().getPos();
-		String[] xy = pos.split(",");
-		int newPosX = Integer.parseInt(xy[0]);
-		int newPosY = Integer.parseInt(xy[1]);
+		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxX());
+		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxY());
 		if(((this.posX-newPosX)+(this.posY-newPosY))<=abiadura) {
 			this.posX = newPosX;
 			this.posY = newPosY;
 		}else {
+			System.out.println("Muy Rapidou Bakerou");
 			this.mugitu();
 		}
 		

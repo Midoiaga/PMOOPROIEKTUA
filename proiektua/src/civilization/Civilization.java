@@ -8,8 +8,7 @@ public class Civilization {
 
 	private Civilization() {
 
-		this.jokalariak[0] = new Jokalaria("");
-		this.jokalariak[1] = new Jokalaria("");
+		this.jokalariak = new ArrayList<Jokalaria>();
 	}
 
 	public static Civilization getNirePartida() {
@@ -19,18 +18,34 @@ public class Civilization {
 
 		return nirePartida;
 	}
-	public void partida(){
-		while(this.amaitu()==false){
-			this.jokalariak[0].txanda();
-			this.jokalariak[1].txanda();
+	public void partida() {
+		while(!this.amaitu()) {
+			for(Jokalaria j : jokalariak) {
+				j.txanda();
+			}
 		}
 
 	}
 	private boolean amaitu(){
 		boolean emaitza=false;
-		if(this.jokalariak[0].hiriKop()==0||this.jokalariak[1].hiriKop()==0){
-			emaitza=true;
+		for(Jokalaria j : jokalariak) {
+			if(j.hiriKop()==0)emaitza=true;
+			else emaitza = false;
 		}
+
 		return emaitza;
+	}
+
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					System.out.println(Mapa.getNireMapa().maxY());
+					Civilization.getNirePartida().partida();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 }
