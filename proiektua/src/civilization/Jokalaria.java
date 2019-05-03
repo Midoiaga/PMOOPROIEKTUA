@@ -19,7 +19,7 @@ public class Jokalaria {
 	
 	public void txanda() {
 		this.hiriakAdministratu();
-		this.gerlariakMugitu();
+		//this.gerlariakMugitu();
 	}
 	
 	private void hiriakAdministratu() {
@@ -51,28 +51,28 @@ public class Jokalaria {
 
 	
 	
-	private void gerlariakMugitu() {
-		this.printGerlarienPos();
-		ArrayList<Hiria> listaGer = hiriak;
-		Gerlaria g = null;
-		while(listaGer.size()>0) {
-			
-			String aukera = Teklatua.getNireTeklatua().getAukerak();
-			g = this.bilatuGerlariaIzen(aukera);
-			g.mugitu();
-			listaGer.remove(g);
-		}
-	}
-	
-	private Gerlaria bilatuGerlariaIzen(String pAukera) {
-		Iterator<Gerlaria> itr = this.getIterGer();
-		Gerlaria g = null;
-		while(itr.hasNext()) {
-			g = itr.next();
-			if(g.izenHauDu(pAukera)) return g;
-		}
-		return null;
-	}
+	//private void gerlariakMugitu() {
+	//	this.printGerlarienPos();
+	//	ArrayList<Hiria> listaGer = hiriak;
+	//	Gerlaria g = null;
+	//	while(listaGer.size()>0) {
+	//		
+	//		String aukera = Teklatua.getNireTeklatua().getAukerak();
+	//		g = this.bilatuGerlariaIzen(aukera);
+	//		g.mugitu();
+	//		listaGer.remove(g);
+	//	}
+	//}
+	//
+	//private Gerlaria bilatuGerlariaIzen(String pAukera) {
+	//	Iterator<Gerlaria> itr = this.getIterGer();
+	//	Gerlaria g = null;
+	//	while(itr.hasNext()) {
+	//		g = itr.next();
+	//		if(g.izenHauDu(pAukera)) return g;
+	//	}
+	//	return null;
+	//}
 
 	//private void printGerlarienPos() {
 	//	//esto sobra no?? por lo menos tal
@@ -103,19 +103,19 @@ public class Jokalaria {
 	public boolean zerbaitDago(int i, int j) {
 		boolean emaitza = false;
 		if(hiriBatDago(i,j)) emaitza = true;
-		if(gerlariBatDago(i,j)) emaitza = true;
+		//if(gerlariBatDago(i,j)) emaitza = true;
 		return emaitza;
 	}
 
-	public boolean gerlariBatDago(int i, int j) {
-		Iterator<Gerlaria> itr = this.getIterGer();
-		Gerlaria g = null;
-		while(itr.hasNext()) {
-			g = itr.next();
-			if(g.dago(i,j)) return true;
-		}
-		return false;
-	}
+	//public boolean gerlariBatDago(int i, int j) {
+	//	Iterator<Gerlaria> itr = this.getIterGer();
+	//	Gerlaria g = null;
+	//	while(itr.hasNext()) {
+	//		g = itr.next();
+	//		if(g.dago(i,j)) return true;
+	//	}
+	//	return false;
+	//}
 
 	private boolean hiriBatDago(int i, int j) {
 		Iterator<Hiria> itr = this.getIterHir();
