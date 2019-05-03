@@ -65,7 +65,9 @@ public class Mapa {
 			System.out.println("");
 			while(j<18) {
 				if(j==0)System.out.print("|");
-				if(pJokalaria.gerlariBatDago(i, j)) System.out.print("G");
+				// la linea de abajo esta obsoleta, hay que usar las hirias para hacer esto
+				// o sino crear una lista con las posiciones del gerlari asignadas al jokalari
+				//if(pJokalaria.gerlariBatDago(i, j)) System.out.print("G");
 				else System.out.print(mapaPrint[i][j]);System.out.print(mapaPrint[i][j]);
 				j++;
 			}
