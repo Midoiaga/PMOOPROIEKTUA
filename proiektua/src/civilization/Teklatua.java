@@ -45,4 +45,9 @@ public class Teklatua {
 			return this.getAukerak(arrayList);
 		}
 	}
+	
+	public String irakurriIzena() {
+		String izena = this.sc.nextLine();
+		return izena;
+	}
 }
