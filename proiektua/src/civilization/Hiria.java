@@ -31,7 +31,7 @@ public class Hiria {
 
 	public void administratu() {
 		
-		System.out.println("Zer nahi duzu egin:");
+		System.out.println("Zer egin nahi duzu:");
 		ArrayList<String> aukerak = new ArrayList<String>();
 		aukerak.add("Eraiki");
 		aukerak.add("Gerlaria");
@@ -94,8 +94,13 @@ public class Hiria {
 	}
 
 	public boolean izenHauDu(String pIzena) {
-		if(this.izena==pIzena) return true;
-		return false;		
+		boolean emaitza = false;
+		System.out.println(pIzena + " == " + this.izena);
+		if(this.izena.equals(pIzena)) {
+			System.out.println("Izen hau du");
+			emaitza = true;
+		}
+		return emaitza;		
 	}
 
 	public boolean dago(int i, int j) {

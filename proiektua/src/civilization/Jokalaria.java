@@ -35,6 +35,9 @@ public class Jokalaria {
 			}
 			String aukera = Teklatua.getNireTeklatua().getAukerak(this.hiriIzenLista());
 			h = this.bilatuHiriaIzen(aukera);
+			if(h==null) {
+				System.out.println("hiria ez da existitzen");
+			}
 			h.administratu();
 			listaHiri.remove(h);
 		}

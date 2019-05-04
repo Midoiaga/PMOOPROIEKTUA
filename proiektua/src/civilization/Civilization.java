@@ -65,15 +65,22 @@ public class Civilization {
 	}
 
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					System.out.println(Mapa.getNireMapa().maxY());
-					Civilization.getNirePartida().partida();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		//EventQueue.invokeLater(new Runnable() {
+		//	public void run() {
+		//		try {
+		//			System.out.println(Mapa.getNireMapa().maxY());
+		//			Civilization.getNirePartida().partida();
+		//		} catch (Exception e) {
+		//			e.printStackTrace();
+		//		}
+		//	}
+		//});
+		try {
+			System.out.println(Mapa.getNireMapa().maxY());
+			Civilization.getNirePartida().partida();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 	}
 }
