@@ -21,12 +21,37 @@ public class Civilization {
 
 		return nirePartida;
 	}
+	
+	private void gehituJokalaria(Jokalaria pJokalari) {
+		this.jokalariak.add(pJokalari);
+		
+	}
+	
 	public void partida() {
+		String jokalariarenIzena;
+		System.out.println("Sartu lehenengo jokalariaren izena: ");
+		jokalariarenIzena = Teklatua.getNireTeklatua().irakurriIzena();
+		this.gehituJokalaria((new Jokalaria(jokalariarenIzena)));
+		
+		System.out.println("Sartu bigarren jokalariaren izena: ");
+		jokalariarenIzena = Teklatua.getNireTeklatua().irakurriIzena();
+		this.gehituJokalaria((new Jokalaria(jokalariarenIzena)));
+		
+		jokalariak.get(0).gehituHiria(new Hiria("AnkhMorpork", 7, 17));
+		//jokalariak.get(0).gehituHiria(new Hiria("Anor Londo", 5, 10));
+		jokalariak.get(1).gehituHiria(new Hiria("Ceres", 2, 4));
+		//jokalariak.get(1).gehituHiria(new Hiria("Medina", 6, 3));
+
+		
+		int txandaCounter = 0;
 		while(!this.amaitu()) {
 			for(Jokalaria j : jokalariak) {
 				j.txanda();
 			}
+			txandaCounter++;
 		}
+		
+		System.out.println("Partidak " + txandaCounter + " txanda iraun du.");
 
 	}
 	private boolean amaitu(){
