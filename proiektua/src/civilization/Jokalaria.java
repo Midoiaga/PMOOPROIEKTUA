@@ -31,6 +31,7 @@ public class Jokalaria {
 			int i = 0;
 			while(i<listaHiri.size()) {
 				listaHiri.get(i).print();
+				i++;
 			}
 			String aukera = Teklatua.getNireTeklatua().getAukerak(this.hiriIzenLista());
 			h = this.bilatuHiriaIzen(aukera);
