@@ -1,7 +1,6 @@
 package civilization;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Hiria {
 	
@@ -81,7 +80,9 @@ public class Hiria {
 		// aunque no sé desde donde se crean los gerlaris
 		// desde la hiria o desde fuera y luego se les pasa a la hiria en el eraikitzaile??
 		if(this.gerlaria!=null) {
-			return true;
+			if(gerlaria.dago(this.posX, this.posY)) {
+				return true;
+			}
 		}
 		return false;
 	}
@@ -95,9 +96,7 @@ public class Hiria {
 
 	public boolean izenHauDu(String pIzena) {
 		boolean emaitza = false;
-		System.out.println(pIzena + " == " + this.izena);
 		if(this.izena.equals(pIzena)) {
-			System.out.println("Izen hau du");
 			emaitza = true;
 		}
 		return emaitza;		
