@@ -1,7 +1,5 @@
 package civilization;
 
-import java.util.Scanner;
-
 public class Gerlaria {
 
 	//atrib

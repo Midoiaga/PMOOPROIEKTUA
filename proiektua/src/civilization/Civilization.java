@@ -38,10 +38,7 @@ public class Civilization {
 		this.gehituJokalaria((new Jokalaria(jokalariarenIzena)));
 		
 		jokalariak.get(0).gehituHiria(new Hiria("AnkhMorpork", 7, 17));
-		//jokalariak.get(0).gehituHiria(new Hiria("Anor Londo", 5, 10));
 		jokalariak.get(1).gehituHiria(new Hiria("Ceres", 2, 4));
-		//jokalariak.get(1).gehituHiria(new Hiria("Medina", 6, 3));
-
 		
 		int txandaCounter = 0;
 		while(!this.amaitu()) {
