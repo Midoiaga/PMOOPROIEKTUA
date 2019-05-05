@@ -18,6 +18,8 @@ public class Jokalaria {
 	}
 	
 	public void txanda() {
+		System.out.println("");
+		System.out.println(this.izena + "-(r)en txanda");
 		this.hiriakAdministratu();
 		//this.gerlariakMugitu();
 	}
