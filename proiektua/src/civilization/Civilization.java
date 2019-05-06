@@ -14,6 +14,7 @@ public class Civilization {
 	private Civilization() {
 
 		this.jokalariak = new ArrayList<Jokalaria>();
+		this.hiriak = new ArrayList<Hiria>();
 	}
 
 	public static Civilization getNirePartida() {
