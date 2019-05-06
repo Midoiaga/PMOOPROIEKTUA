@@ -28,7 +28,7 @@ public class Hiria {
 	
 	public void sortuGerlaria(String pGerIzena) {
 		if(!this.gerlariaDago()) {
-			this.gerlaria = new Gerlaria(pGerIzena);
+			this.gerlaria = new Gerlaria(pGerIzena, this.posX, this.posY);
 		} else {
 			System.out.println("Gerlaria existitzen da jada hiri honetan:");
 			this.gerlaria.printGerlaria();
@@ -36,8 +36,14 @@ public class Hiria {
 	}
 
 	public void print() {
-		System.out.println(izena + " hiria(" + posX + "," + posY + ")" + "HP:" + this.bizitza);
+		System.out.println(izena + " hiria(" + posX + "," + posY + ")" + " HP: " + this.bizitza);
 		
+	}
+	
+	private void printAukerak(ArrayList<String> pAuk) {
+		for(String a : pAuk) {
+			System.out.println("-" + a);
+		}
 	}
 
 	public void administratu() {
@@ -47,6 +53,7 @@ public class Hiria {
 		aukerak.add("Eraiki");
 		aukerak.add("Gerlaria");
 		aukerak.add("Ezer");
+		this.printAukerak(aukerak);
 		String aukera = Teklatua.getNireTeklatua().getAukerak(aukerak);
 		switch(aukera) {
 		case "Eraiki":
@@ -96,6 +103,7 @@ public class Hiria {
 			gerlariAukerak.add("Eraso");
 			gerlariAukerak.add("Stats");
 			gerlariAukerak.add("Ezer");
+			this.printAukerak(gerlariAukerak);
 			String gerlariAukera = Teklatua.getNireTeklatua().getAukerak(gerlariAukerak);
 			
 			switch(gerlariAukera) {
@@ -107,17 +115,20 @@ public class Hiria {
 				erasoAukerak.add("Hiria");
 				erasoAukerak.add("Gerlaria");
 				erasoAukerak.add("Ezer");
+				this.printAukerak(erasoAukerak);
 				String erasoAukera = Teklatua.getNireTeklatua().getAukerak(erasoAukerak);
 				if(erasoAukera == "Gerlaria") {
 					// TODO
 					//this.gerlaria.gerlariEraso(pGerlaria);
+					break;
 				} else if(erasoAukera == "Hiria") {
 					// TODO
 					//this.gerlaria.hiriaEraso(pHiria);
+					break;
 				} else {
 					System.out.println("Erasoa bertan bera utzi duzu");
+					break;
 				}
-				break;
 			case "Stats":
 				this.urrea = this.gerlaria.aukerak(this.urrea);
 				break;
