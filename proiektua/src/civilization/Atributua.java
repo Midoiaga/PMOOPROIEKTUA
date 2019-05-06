@@ -8,7 +8,7 @@ public abstract class Atributua {
 	private int urreKost;
 	
 	public Atributua() {
-		this.maila = 0;
+		this.maila = 1;
 		this.mailaMax = 10;
 		this.urreKost = 100;
 	}
