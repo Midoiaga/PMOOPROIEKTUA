@@ -31,26 +31,29 @@ public class Civilization {
 	
 	private void hasieratu() {
 		String izen;
-		String gerIzen;
+		// lehenengo jokalaria
 		System.out.println("Sartu lehenengo jokalariaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.gehituJokalaria((new Jokalaria(izen)));
 		
 		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.hiriak.add(new Hiria(izen, 7, 17));
 		System.out.println("Sartu lehenengo jokalariaren gerlari inizialaren izena: ");
-		gerIzen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 7, 17, gerIzen));
+		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.hiriak.get(0).sortuGerlaria(izen);
 		
 		System.out.println("Sartu bigarren jokalariaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.gehituJokalaria((new Jokalaria(izen)));
 		
+		// bigarren jokalaria
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.hiriak.add(new Hiria(izen, 2, 4));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
-		gerIzen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 2, 4, gerIzen));
+		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.hiriak.get(0).sortuGerlaria(izen);
 				
 		jokalariak.get(0).gehituHiria(this.hiriak.get(0));
 		jokalariak.get(1).gehituHiria(this.hiriak.get(1));

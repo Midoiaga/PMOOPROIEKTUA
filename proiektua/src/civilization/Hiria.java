@@ -14,7 +14,7 @@ public class Hiria {
 	private ListaEraikinak eraikinak;
 	private int bizitza;
 		
-	public Hiria(String pHiriIzena, int pPosX, int pPosY, String pGerlIzen){
+	public Hiria(String pHiriIzena, int pPosX, int pPosY){
 		this.urrea = 100;
 		this.egurra = 100;
 		this.harria = 100;
@@ -22,8 +22,17 @@ public class Hiria {
 		this.posX = pPosX;
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
-		this.gerlaria = new Gerlaria(pGerlIzen);
 		this.bizitza = 100;
+		this.gerlaria = null;
+	}
+	
+	public void sortuGerlaria(String pGerIzena) {
+		if(!this.gerlariaDago()) {
+			this.gerlaria = new Gerlaria(pGerIzena);
+		} else {
+			System.out.println("Gerlaria existitzen da jada hiri honetan:");
+			this.gerlaria.printGerlaria();
+		}
 	}
 
 	public void print() {
