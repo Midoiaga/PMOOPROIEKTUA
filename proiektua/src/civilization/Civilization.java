@@ -44,18 +44,21 @@ public class Civilization {
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(0).sortuGerlaria(izen);
 		
+		// bigarren jokalaria
+		System.out.println("");
+		
 		System.out.println("Sartu bigarren jokalariaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.gehituJokalaria((new Jokalaria(izen)));
 		
-		System.out.println("");
-		// bigarren jokalaria
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.add(new Hiria(izen, 2, 4));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(1).sortuGerlaria(izen);
+		
+		System.out.println("");
 				
 		jokalariak.get(0).gehituHiria(this.hiriak.get(0));
 		jokalariak.get(1).gehituHiria(this.hiriak.get(1));
