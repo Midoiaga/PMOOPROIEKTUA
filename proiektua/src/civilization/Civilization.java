@@ -2,10 +2,14 @@ package civilization;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Civilization {
 
 	private ArrayList<Jokalaria> jokalariak;
+	
+	private ArrayList<Hiria> hiriak;
+	private ArrayList<Gerlaria> gerlariak;
 
 	private static Civilization nirePartida = null;
 
@@ -27,18 +31,40 @@ public class Civilization {
 		
 	}
 	
-	public void partida() {
-		String jokalariarenIzena;
+	public Iterator<Gerlaria> getIterGer() {
+		return this.gerlariak.iterator();
+	}
+	
+	private void hasieratu() {
+		String izen;
+		String gerIzen;
 		System.out.println("Sartu lehenengo jokalariaren izena: ");
-		jokalariarenIzena = Teklatua.getNireTeklatua().irakurriIzena();
-		this.gehituJokalaria((new Jokalaria(jokalariarenIzena)));
+		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.gehituJokalaria((new Jokalaria(izen)));
+		
+		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
+		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		System.out.println("Sartu lehenengo jokalariaren gerlari inizialaren izena: ");
+		gerIzen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.hiriak.add(new Hiria(izen, 7, 17, gerIzen));
 		
 		System.out.println("Sartu bigarren jokalariaren izena: ");
-		jokalariarenIzena = Teklatua.getNireTeklatua().irakurriIzena();
-		this.gehituJokalaria((new Jokalaria(jokalariarenIzena)));
+		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.gehituJokalaria((new Jokalaria(izen)));
 		
-		jokalariak.get(0).gehituHiria(new Hiria("AnkhMorpork", 7, 17, "TwoFlower"));
-		jokalariak.get(1).gehituHiria(new Hiria("Ceres", 2, 4, "JamesHolden"));
+		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
+		izen = Teklatua.getNireTeklatua().irakurriIzena();
+		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
+		gerIzen = Teklatua.getNireTeklatua().irakurriIzena();
+		this.hiriak.add(new Hiria(izen, 2, 4, gerIzen));
+				
+		jokalariak.get(0).gehituHiria(this.hiriak.get(0));
+		jokalariak.get(1).gehituHiria(this.hiriak.get(1));
+
+	}
+	
+	public void partida() {
+		this.hasieratu();
 		
 		int txandaCounter = 0;
 		while(!this.amaitu()) {

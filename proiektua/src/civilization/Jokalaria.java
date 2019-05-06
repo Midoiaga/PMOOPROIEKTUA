@@ -101,10 +101,6 @@ public class Jokalaria {
 		return null;
 	}
 
-	//private Iterator<Gerlaria> getIterGer(){
-	//	return this.gerlariak.iterator();
-	//}
-	
 	private Iterator<Hiria> getIterHir(){
 		return this.hiriak.iterator();
 	}
@@ -112,19 +108,19 @@ public class Jokalaria {
 	public boolean zerbaitDago(int i, int j) {
 		boolean emaitza = false;
 		if(hiriBatDago(i,j)) emaitza = true;
-		//if(gerlariBatDago(i,j)) emaitza = true;
+		if(gerlariBatDago(i,j)) emaitza = true;
 		return emaitza;
 	}
 
-	//public boolean gerlariBatDago(int i, int j) {
-	//	Iterator<Gerlaria> itr = this.getIterGer();
-	//	Gerlaria g = null;
-	//	while(itr.hasNext()) {
-	//		g = itr.next();
-	//		if(g.dago(i,j)) return true;
-	//	}
-	//	return false;
-	//}
+	public boolean gerlariBatDago(int i, int j) {
+		Iterator<Gerlaria> itr = Civilization.getIterGer();
+		Gerlaria g = null;
+		while(itr.hasNext()) {
+			g = itr.next();
+			if(g.dago(i,j)) return true;
+		}
+		return false;
+	}
 
 	private boolean hiriBatDago(int i, int j) {
 		Iterator<Hiria> itr = this.getIterHir();

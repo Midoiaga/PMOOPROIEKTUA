@@ -105,6 +105,14 @@ public class Gerlaria {
 		}
 		
 	}
+	
+	public void hiriaEraso(Hiria pHiria) {
+		// TODO, tiene que estar a distancia
+	}
+	
+	public void gerlariEraso(Gerlaria pGerlaria) {
+		// TODO, tiene que estar a distancia
+	}
 
 	public boolean izenHauDu(String pIzena) {
 		//gerlariak pIzena izena badu true, bestela false

@@ -12,6 +12,7 @@ public class Hiria {
 	private int harria;
 	private Gerlaria gerlaria;
 	private ListaEraikinak eraikinak;
+	private int bizitza;
 		
 	public Hiria(String pHiriIzena, int pPosX, int pPosY, String pGerlIzen){
 		this.urrea = 100;
@@ -22,10 +23,11 @@ public class Hiria {
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
 		this.gerlaria = new Gerlaria(pGerlIzen);
+		this.bizitza = 100;
 	}
 
 	public void print() {
-		System.out.println(izena + " hiria(" + posX + "," + posY + ")");
+		System.out.println(izena + " hiria(" + posX + "," + posY + ")" + "HP:" + this.bizitza);
 		
 	}
 
@@ -106,5 +108,9 @@ public class Hiria {
 
 	public String getIzena() {
 		return this.izena;
+	}
+	
+	public void aldatuIzena(String pIzena) {
+		this.izena = pIzena;
 	}
 }
