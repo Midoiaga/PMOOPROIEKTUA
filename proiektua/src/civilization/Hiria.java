@@ -77,14 +77,54 @@ public class Hiria {
 			break;
 			
 		case "Gerlaria":
-			if(!this.gerlariaDago()) System.out.println("Ez dago gerlaririk hiri honetan");
-			else this.urrea = this.gerlaria.aukerak(this.urrea);
+			this.gerlariaAdministratu();
 			this.administratu();
 			break;
 		case "Ezer":
 			
 		}
 		
+	}
+	
+	public void gerlariaAdministratu() {
+		this.gerlaria.printGerlaria();
+		if(!this.gerlariaDago()) System.out.println("Ez dago gerlaririk hiri honetan");
+		else {
+			System.out.println("Zer egin nahi duzu:");
+			ArrayList<String> gerlariAukerak = new ArrayList<String>();
+			gerlariAukerak.add("Mugitu");
+			gerlariAukerak.add("Eraso");
+			gerlariAukerak.add("Stats");
+			gerlariAukerak.add("Ezer");
+			String gerlariAukera = Teklatua.getNireTeklatua().getAukerak(gerlariAukerak);
+			
+			switch(gerlariAukera) {
+			case "Mugitu":
+				this.gerlaria.mugitu();
+				break;
+			case "Eraso":
+				ArrayList<String> erasoAukerak = new ArrayList<String>();
+				erasoAukerak.add("Hiria");
+				erasoAukerak.add("Gerlaria");
+				erasoAukerak.add("Ezer");
+				String erasoAukera = Teklatua.getNireTeklatua().getAukerak(erasoAukerak);
+				if(erasoAukera == "Gerlaria") {
+					// TODO
+					//this.gerlaria.gerlariEraso(pGerlaria);
+				} else if(erasoAukera == "Hiria") {
+					// TODO
+					//this.gerlaria.hiriaEraso(pHiria);
+				} else {
+					System.out.println("Erasoa bertan bera utzi duzu");
+				}
+				break;
+			case "Stats":
+				this.urrea = this.gerlaria.aukerak(this.urrea);
+				break;
+			case "Ezer":
+				
+			}
+		}
 	}
 	
 	private boolean gerlariaDago() {
