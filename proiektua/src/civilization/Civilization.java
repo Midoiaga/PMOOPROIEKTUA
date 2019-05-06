@@ -2,14 +2,12 @@ package civilization;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Civilization {
 
 	private ArrayList<Jokalaria> jokalariak;
 	
 	private ArrayList<Hiria> hiriak;
-	private ArrayList<Gerlaria> gerlariak;
 
 	private static Civilization nirePartida = null;
 
@@ -29,10 +27,6 @@ public class Civilization {
 	private void gehituJokalaria(Jokalaria pJokalari) {
 		this.jokalariak.add(pJokalari);
 		
-	}
-	
-	public Iterator<Gerlaria> getIterGer() {
-		return this.gerlariak.iterator();
 	}
 	
 	private void hasieratu() {
