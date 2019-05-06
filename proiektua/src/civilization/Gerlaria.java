@@ -11,13 +11,15 @@ public class Gerlaria {
 	private int posX;
 	private int posY;
 	
-	public Gerlaria(String pIzena) {
+	public Gerlaria(String pIzena, int pX, int pY) {
 		//eraikitzailea
 		this.izena = pIzena;
 		this.HP= new Bizitza();
 		this.A = new Indarra();
 		this.D = new Defentza();
 		this.V = new Abiadura();
+		this.posX = pX;
+		this.posY = pY;
 	}
 
 	public int aukerak(int pUrrea) {
@@ -76,7 +78,6 @@ public class Gerlaria {
 	public void printGerlaria() {
 		//gerlariari buruzko informazioa printeatzen ditu (pos)
 		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago.");
-		
 	}
 	
 	public void eliminar(int i, int j) {
@@ -92,15 +93,17 @@ public class Gerlaria {
 		 * eta berriro saiatu
 		 */
 		int abiadura = this.V.maila();
-		System.out.println(abiadura + "kasila mugitu daiteke.");
-		System.out.println("");
+		this.printGerlaria();
+		System.out.println(abiadura + " kasila mugitu daiteke");
+		System.out.println("Sartu x ardatzeko posizio berria: ");
 		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxX());
+		System.out.println("Sartu y adratzeko posizio berria: ");
 		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxY());
 		if(((this.posX-newPosX)+(this.posY-newPosY))<=abiadura) {
 			this.posX = newPosX;
 			this.posY = newPosY;
 		}else {
-			System.out.println("Muy Rapidou Bakerou");
+			System.out.println("Muy Rapidou Bakerou, osea... berriro\n");
 			this.mugitu();
 		}
 		
