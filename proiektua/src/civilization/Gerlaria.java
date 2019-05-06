@@ -107,11 +107,11 @@ public class Gerlaria {
 	}
 	
 	public void hiriaEraso(Hiria pHiria) {
-		// TODO, tiene que estar a distancia
+		// TODO, tiene que estar a cierta distancia
 	}
 	
 	public void gerlariEraso(Gerlaria pGerlaria) {
-		// TODO, tiene que estar a distancia
+		// TODO, tiene que estar a cierta distancia
 	}
 
 	public boolean izenHauDu(String pIzena) {
