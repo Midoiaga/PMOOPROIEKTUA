@@ -72,6 +72,7 @@ public class Civilization {
 		while(!this.amaitu()) {
 			for(Jokalaria j : jokalariak) {
 				j.txanda();
+				Mapa.getNireMapa().print();
 				// pantaila garbitu hurrengo erabiltzailearentzako
 				// for (int i = 0; i < 50; ++i) System.out.println();
 			}

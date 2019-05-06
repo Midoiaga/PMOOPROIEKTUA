@@ -6,6 +6,9 @@ public class Mapa {
 	
 	private static Mapa nireMapa = null;
 	
+	private char ger = 'G';
+	private char hir = 'H';
+	
 	private Mapa(){
 		mapa = new char[8][18];
 				
