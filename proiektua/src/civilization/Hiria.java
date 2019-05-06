@@ -113,4 +113,8 @@ public class Hiria {
 	public void aldatuIzena(String pIzena) {
 		this.izena = pIzena;
 	}
+	
+	public Gerlaria getGer() {
+		return this.gerlaria;
+	}
 }
