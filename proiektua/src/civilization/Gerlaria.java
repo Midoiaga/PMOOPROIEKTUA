@@ -108,7 +108,7 @@ public class Gerlaria {
 
 	public boolean izenHauDu(String pIzena) {
 		//gerlariak pIzena izena badu true, bestela false
-		if(this.izena==pIzena) return true;
+		if(this.izena.equals(pIzena)) return true;
 		return false;
 	}
 
