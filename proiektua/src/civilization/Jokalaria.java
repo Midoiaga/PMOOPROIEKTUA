@@ -104,6 +104,17 @@ public class Jokalaria {
 	private Iterator<Hiria> getIterHir(){
 		return this.hiriak.iterator();
 	}
+	
+	private Iterator<Gerlaria> getIterGer() {
+		ArrayList<Gerlaria> itrG = new ArrayList<Gerlaria>();
+		Iterator<Hiria> itrH = this.getIterHir();
+		Hiria oraingoH = null;
+		while(itrH.hasNext()) {
+			oraingoH = itrH.next();
+			itrG.add(oraingoH.getGer());
+		}
+		return itrG.iterator();
+	}
 
 	public boolean zerbaitDago(int i, int j) {
 		boolean emaitza = false;
@@ -113,7 +124,7 @@ public class Jokalaria {
 	}
 
 	public boolean gerlariBatDago(int i, int j) {
-		Iterator<Gerlaria> itr = Civilization.getIterGer();
+		Iterator<Gerlaria> itr = this.getIterGer();
 		Gerlaria g = null;
 		while(itr.hasNext()) {
 			g = itr.next();
