@@ -13,7 +13,7 @@ public class Hiria {
 	private Gerlaria gerlaria;
 	private ListaEraikinak eraikinak;
 		
-	public Hiria(String pHiriIzena, int pPosX, int pPosY){
+	public Hiria(String pHiriIzena, int pPosX, int pPosY, String pGerlIzen){
 		this.urrea = 100;
 		this.egurra = 100;
 		this.harria = 100;
@@ -21,6 +21,7 @@ public class Hiria {
 		this.posX = pPosX;
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
+		this.gerlaria = new Gerlaria(pGerlIzen);
 	}
 
 	public void print() {
@@ -80,9 +81,7 @@ public class Hiria {
 		// aunque no sé desde donde se crean los gerlaris
 		// desde la hiria o desde fuera y luego se les pasa a la hiria en el eraikitzaile??
 		if(this.gerlaria!=null) {
-			if(gerlaria.dago(this.posX, this.posY)) {
-				return true;
-			}
+			return true;
 		}
 		return false;
 	}

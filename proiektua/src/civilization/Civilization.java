@@ -37,8 +37,8 @@ public class Civilization {
 		jokalariarenIzena = Teklatua.getNireTeklatua().irakurriIzena();
 		this.gehituJokalaria((new Jokalaria(jokalariarenIzena)));
 		
-		jokalariak.get(0).gehituHiria(new Hiria("AnkhMorpork", 7, 17));
-		jokalariak.get(1).gehituHiria(new Hiria("Ceres", 2, 4));
+		jokalariak.get(0).gehituHiria(new Hiria("AnkhMorpork", 7, 17, "TwoFlower"));
+		jokalariak.get(1).gehituHiria(new Hiria("Ceres", 2, 4, "JamesHolden"));
 		
 		int txandaCounter = 0;
 		while(!this.amaitu()) {

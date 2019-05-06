@@ -14,6 +14,10 @@ public class Gerlaria {
 	public Gerlaria(String pIzena) {
 		//eraikitzailea
 		this.izena = pIzena;
+		this.HP= new Bizitza();
+		this.A = new Indarra();
+		this.D = new Defentza();
+		this.V = new Abiadura();
 	}
 
 	public int aukerak(int pUrrea) {
