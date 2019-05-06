@@ -23,19 +23,14 @@ public class Aukerak {
         String line = "";
         try (BufferedReader br1 = new BufferedReader(new FileReader(fitxategia))) {
             while ((line = br1.readLine()) != null) {
-            	System.out.println("Entra en el while");
                 if(line.equals(pFiltroa)) {
-                	System.out.println("Entra en el if");
                 	while (line != null&&!line.equals(pFiltroa)) {
-                		System.out.println("while");
                 		line = br1.readLine();
                 		emaitza.add(line);
                 	}
-                	System.out.println("return emaitza");
                 	return emaitza;
                 }               
             }
-            System.out.println("return null");
             return null;
 
         } catch (IOException e) {
