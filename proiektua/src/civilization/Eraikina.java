@@ -1,6 +1,6 @@
 package civilization;
 
-public abstract class Eraikina {
+public class Eraikina {
 	
 	//atrib
 	private int urreKostua;
@@ -8,9 +8,12 @@ public abstract class Eraikina {
 	private int harriKostua;
 	private String izena;
 	
-	public Eraikina(String pIzena) {
+	public Eraikina(String pIzena, int pEgurreKostua, int pHarriKostua, int pUrreKostua) {
 		//eraikinaren eraikitzailea
 		this.izena = pIzena;
+		this.egurreKostua = pEgurreKostua;
+		this.harriKostua = pHarriKostua;
+		this.urreKostua = pUrreKostua;
 	}
 
 	public void print() {

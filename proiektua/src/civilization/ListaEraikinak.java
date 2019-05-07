@@ -11,6 +11,11 @@ public class ListaEraikinak {
 	
 	public ListaEraikinak() {
 		this.dituzunEraikinak = new ArrayList<Eraikina>();
+		this.bezteEraikinak = new ArrayList<Eraikina>();
+		bezteEraikinak.add(new Eraikina("Zerratokia",100,100,50));
+		bezteEraikinak.add(new Eraikina("Harrobia",100,100,50));
+		bezteEraikinak.add(new Eraikina("Burdinola",100,100,50));
+		bezteEraikinak.add(new Eraikina("Urre Mina",100,100,50));
 	}
 	
 	public void printFalta() {
