@@ -36,6 +36,10 @@ public abstract class Eraikina {
 		if(this.izena==pIzena) return true;
 		return false;
 	}
+	
+	public String getIzena() {
+		return this.izena;
+	}
 
 	public int getEgurreKost() {
 		//no voy ha explicar esto equisde

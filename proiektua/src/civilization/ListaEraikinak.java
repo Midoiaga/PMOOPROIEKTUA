@@ -70,7 +70,7 @@ public class ListaEraikinak {
 		ArrayList<String> falta = new ArrayList<String>();
 		int i = 0;
 		while(i<bezteEraikinak.size()) {
-			falta.add(bezteEraikinak.get(i).izena());
+			falta.add(bezteEraikinak.get(i).getIzena());
 		}
 		return falta;
 	}
