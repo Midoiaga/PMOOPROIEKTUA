@@ -20,6 +20,7 @@ public class Civilization {
 	public static Civilization getNirePartida() {
 		if(nirePartida==null) {
 			nirePartida = new Civilization();
+			
 		}
 
 		return nirePartida;

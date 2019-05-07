@@ -30,6 +30,7 @@ public class Hiria {
 	
 	public String izena() {
 		return this.izena;
+		
 	}
 	
 	public void sortuGerlaria(String pGerIzena) {
