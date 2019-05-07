@@ -2,7 +2,7 @@ package civilization;
 
 public class Eraikina {
 	
-	//atrib
+	
 	private int urreKostua;
 	private int egurreKostua;
 	private int harriKostua;

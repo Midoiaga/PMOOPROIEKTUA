@@ -26,6 +26,7 @@ public class ListaEraikinak {
 			bezteEraikinak.get(i).printKostua();
 		}
 		System.out.println("Aukeratu bat:");
+		
 	}
 	
 	
