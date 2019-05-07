@@ -1,5 +1,7 @@
 package civilization;
 
+import java.util.ArrayList;
+
 public class Gerlaria {
 
 	//atrib
@@ -28,9 +30,9 @@ public class Gerlaria {
 	}
 
 	public int aukerak(int pUrrea) {
-		//aukerak aukeratu lol
-		this.printAukerak();
-		String aukera = Teklatua.getNireTeklatua().getAukerak(Aukerak.getAukerak().aukerakFiltro("Stats"));
+		ArrayList<String> aukerak = this.aukerak();
+		this.printAukerak(aukerak);
+		String aukera = Teklatua.getNireTeklatua().getAukerak(aukerak);
 		switch(aukera) {
 		case"Bizitza":
 			if(!this.HP.mailaMaxDauka()) {
@@ -71,15 +73,21 @@ public class Gerlaria {
 		return pUrrea;
 	}
 	
-	private void printAukerak() {
+	private void printAukerak(ArrayList<String> aukerak) {
 		//jokalariak egin ditzakeen akzioak printeatzen ditu
 		System.out.println(this.izena + " hobetzeko dituzun aukerak hauek dira:");
-		if(!this.HP.mailaMaxDauka()) System.out.println("-Bizitza");
-		if(!this.A.mailaMaxDauka()) System.out.println("-Indarra");
-		if(!this.D.mailaMaxDauka()) System.out.println("-Defentza");
-		if(!this.V.mailaMaxDauka()) System.out.println("-Abiadura");
+		for(String aukera : aukerak) System.out.println("-"+aukera);
 	}
 	
+	private ArrayList<String> aukerak() {
+		ArrayList<String> aukerak = new ArrayList<String>();
+		if(!this.HP.mailaMaxDauka()) aukerak.add("Bizitza");
+		if(!this.A.mailaMaxDauka()) aukerak.add("Indarra");
+		if(!this.D.mailaMaxDauka()) aukerak.add("Defentza");
+		if(!this.V.mailaMaxDauka()) aukerak.add("Abiadura");
+		return aukerak;
+	}
+	 
 	public void printGerlaria() {
 		//gerlariari buruzko informazioa printeatzen ditu (pos)
 		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago.");

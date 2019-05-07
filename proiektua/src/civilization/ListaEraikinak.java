@@ -65,5 +65,14 @@ public class ListaEraikinak {
 		}
 		return bol;
 	}
+
+	public ArrayList<String> falta() {
+		ArrayList<String> falta = new ArrayList<String>();
+		int i = 0;
+		while(i<bezteEraikinak.size()) {
+			falta.add(bezteEraikinak.get(i).izena());
+		}
+		return falta;
+	}
 	
 }

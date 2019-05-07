@@ -31,6 +31,9 @@ public class Civilization {
 	}
 	
 	private void hasieratu() {
+		this.jokalariak.clear();
+		Mapa.getNireMapa().erreseteatu();
+		
 		String izen;
 		// lehenengo jokalaria
 		System.out.println("Sartu lehenengo jokalariaren izena: ");
