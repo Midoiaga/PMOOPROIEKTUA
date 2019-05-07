@@ -33,7 +33,7 @@ public class Hiria {
 	}
 	
 	public void sortuGerlaria(String pGerIzena) {
-		if(!this.gerlariaDago()) {
+		if(!this.gerlariaExistitzenDa()) {
 			this.gerlaria = new Gerlaria(pGerIzena, this.posX, this.posY);
 		} else {
 			System.out.println("Gerlaria existitzen da jada hiri honetan:");
@@ -131,6 +131,11 @@ public class Hiria {
 	
 	public boolean gerlariaDago() {
 		if(this.gerlaria.dago(posX, posY))return true;
+		else return false;
+	}
+	
+	public boolean gerlariaExistitzenDa() {
+		if(this.gerlaria != null) return true;
 		else return false;
 	}
 
