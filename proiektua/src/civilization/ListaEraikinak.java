@@ -28,7 +28,7 @@ public class ListaEraikinak {
 		}
 		System.out.println("Aukeratu bat:");
 		
-		
+	
 	}
 	
 	

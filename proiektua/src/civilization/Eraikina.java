@@ -14,7 +14,6 @@ public class Eraikina {
 		this.egurreKostua = pEgurreKostua;
 		this.harriKostua = pHarriKostua;
 		this.urreKostua = pUrreKostua;
-		
 	}
 
 	public void print() {
