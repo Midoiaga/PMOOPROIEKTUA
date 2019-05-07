@@ -21,6 +21,11 @@ public class Gerlaria {
 		this.posX = pX;
 		this.posY = pY;
 	}
+	
+	public boolean hildaDago() {
+		if(this.HP.getBal()<=0) return true;
+		return false;
+	}
 
 	public int aukerak(int pUrrea) {
 		//aukerak aukeratu lol
@@ -110,13 +115,20 @@ public class Gerlaria {
 	}
 	
 	public void hiriaEraso(Hiria pHiria) {
-		// TODO, tiene que estar a cierta distancia
+		int dmg = pHiria.erasoJaso(this.A.maila());
+		this.HP.kenduBizitza(dmg);
 	}
 	
 	public void gerlariEraso(Gerlaria pGerlaria) {
-		// TODO, tiene que estar a cierta distancia
+		int dmg = pGerlaria.erasoJaso(this.A.maila());
+		this.HP.kenduBizitza(dmg);
 	}
 
+	public int erasoJaso(int pDMG) {
+		this.HP.kenduBizitza(pDMG);
+		return this.A.maila();
+	}
+	
 	public boolean izenHauDu(String pIzena) {
 		//gerlariak pIzena izena badu true, bestela false
 		if(this.izena.equals(pIzena)) return true;

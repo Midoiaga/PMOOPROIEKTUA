@@ -13,6 +13,7 @@ public class Hiria {
 	private Gerlaria gerlaria;
 	private ListaEraikinak eraikinak;
 	private int bizitza;
+	private int erasoa;
 		
 	public Hiria(String pHiriIzena, int pPosX, int pPosY){
 		this.urrea = 100;
@@ -119,10 +120,12 @@ public class Hiria {
 				String erasoAukera = Teklatua.getNireTeklatua().getAukerak(erasoAukerak);
 				if(erasoAukera == "Gerlaria") {
 					// TODO
+					
 					//this.gerlaria.gerlariEraso(pGerlaria);
 					break;
 				} else if(erasoAukera == "Hiria") {
 					// TODO
+					
 					//this.gerlaria.hiriaEraso(pHiria);
 					break;
 				} else {
@@ -176,5 +179,10 @@ public class Hiria {
 	
 	public Gerlaria getGer() {
 		return this.gerlaria;
+	}
+	
+	public int erasoJaso(int pDMG) {
+		this.bizitza = this.bizitza - pDMG;
+		return this.erasoa;
 	}
 }
