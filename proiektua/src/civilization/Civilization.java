@@ -20,6 +20,7 @@ public class Civilization {
 	public static Civilization getNirePartida() {
 		if(nirePartida==null) {
 			nirePartida = new Civilization();
+			
 		}
 
 		return nirePartida;
@@ -88,8 +89,22 @@ public class Civilization {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					System.out.println("\r\n" + 
+							" ________  ___  ___      ___ ___  ___       ___  ________  ________  _________  ___  ________  ________      \r\n" + 
+							"|\\   ____\\|\\  \\|\\  \\    /  /|\\  \\|\\  \\     |\\  \\|\\_____  \\|\\   __  \\|\\___   ___\\\\  \\|\\   __  \\|\\   ___  \\    \r\n" + 
+							"\\ \\  \\___|\\ \\  \\ \\  \\  /  / | \\  \\ \\  \\    \\ \\  \\\\|___/  /\\ \\  \\|\\  \\|___ \\  \\_\\ \\  \\ \\  \\|\\  \\ \\  \\\\ \\  \\   \r\n" + 
+							" \\ \\  \\    \\ \\  \\ \\  \\/  / / \\ \\  \\ \\  \\    \\ \\  \\   /  / /\\ \\   __  \\   \\ \\  \\ \\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\  \r\n" + 
+							"  \\ \\  \\____\\ \\  \\ \\    / /   \\ \\  \\ \\  \\____\\ \\  \\ /  /_/__\\ \\  \\ \\  \\   \\ \\  \\ \\ \\  \\ \\  \\\\\\  \\ \\  \\\\ \\  \\ \r\n" + 
+							"   \\ \\_______\\ \\__\\ \\__/ /     \\ \\__\\ \\_______\\ \\__\\\\________\\ \\__\\ \\__\\   \\ \\__\\ \\ \\__\\ \\_______\\ \\__\\\\ \\__\\\r\n" + 
+							"    \\|_______|\\|__|\\|__|/       \\|__|\\|_______|\\|__|\\|_______|\\|__|\\|__|    \\|__|  \\|__|\\|_______|\\|__| \\|__|\r\n" + 
+							"                                                                                                             \r\n" + 
+							"                                                                                                             \r\n" + 
+							"                                                                                                             \r\n" + 
+							"");
 					System.out.println("Maparen tamaina " + Mapa.getNireMapa().maxX() + "," + Mapa.getNireMapa().maxY() + " da.");
+					
 					Civilization.getNirePartida().partida();
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -97,3 +112,4 @@ public class Civilization {
 		});
 	}
 }
+
