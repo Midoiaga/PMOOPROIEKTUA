@@ -48,6 +48,10 @@ public class Teklatua {
 	
 	public String irakurriIzena() {
 		String izena = this.sc.nextLine();
+		if(izena.isEmpty()) {
+			System.out.println("Sartu zerbait mesedez...");
+			izena = this.irakurriIzena();
+		}
 		return izena;
 	}
 }
