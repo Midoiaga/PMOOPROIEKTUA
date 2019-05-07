@@ -24,33 +24,6 @@ public class ListaEraikinak {
 		int i = 0;
 		while(i<bezteEraikinak.size()) {
 			bezteEraikinak.get(i).printKostua();
-		}
-package civilization;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
-public class ListaEraikinak {
-	
-	//atrib
-	private ArrayList<Eraikina> dituzunEraikinak;
-	private ArrayList<Eraikina> bezteEraikinak;
-	
-	public ListaEraikinak() {
-		this.dituzunEraikinak = new ArrayList<Eraikina>();
-		this.bezteEraikinak = new ArrayList<Eraikina>();
-		bezteEraikinak.add(new Eraikina("Zerratokia",100,100,50));
-		bezteEraikinak.add(new Eraikina("Harrobia",100,100,50));
-		bezteEraikinak.add(new Eraikina("Burdinola",100,100,50));
-		bezteEraikinak.add(new Eraikina("Urre Mina",100,100,50));
-	}
-	
-	public void printFalta() {
-		//zein eraikinak eraiki dezakeen jokalariak
-		System.out.println("Eta eraikin hauek eraiki ditzazkezu:");
-		int i = 0;
-		while(i<bezteEraikinak.size()) {
-			bezteEraikinak.get(i).printKostua();
 			i++;
 		}
 		System.out.println("Aukeratu bat:");
@@ -77,8 +50,7 @@ public class ListaEraikinak {
 	
 	public void gehitu(Eraikina pEraikina) {
 		this.dituzunEraikinak.add(pEraikina);
-		this.bezteEraikinak.remove(pEraikina);
-		
+		this.bezteEraikinak.remove(pEraikina);		
 	}
 
 	public boolean ezinDaEzerEraiki(int pUrrea, int pHarria, int pEgurra) {
