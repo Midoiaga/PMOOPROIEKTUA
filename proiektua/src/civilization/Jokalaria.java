@@ -7,7 +7,6 @@ public class Jokalaria {
 	
 	//atrib
 	private ArrayList<Hiria> hiriak;
-	//private ArrayList<Gerlaria> gerlariak;
 	private String izena;
 	
 	public Jokalaria(String pIzena) {
@@ -20,7 +19,7 @@ public class Jokalaria {
 		System.out.println("");
 		System.out.println(this.izena + "-(r)en txanda");
 		this.hiriakAdministratu();
-		//this.gerlariakMugitu();
+		this.gerlariakMugitu();
 	}
 	
 	private void hiriakAdministratu() {
@@ -37,7 +36,10 @@ public class Jokalaria {
 			}
 			String aukera = Teklatua.getNireTeklatua().getAukerak(this.hiriIzenLista());
 			h = this.bilatuHiriaIzen(aukera);
-			h.administratu();
+			ArrayList<String> aukerak = new ArrayList<String>();
+			aukerak.add("Eraiki");
+			aukerak.add("Gerlaria");
+			h.administratu(aukerak);
 			hiriErabiliak.add(h);
 			listaHiri.remove(h);
 		}
@@ -60,36 +62,53 @@ public class Jokalaria {
 
 	
 	
-	//private void gerlariakMugitu() {
-	//	this.printGerlarienPos();
-	//	ArrayList<Hiria> listaGer = hiriak;
-	//	Gerlaria g = null;
-	//	while(listaGer.size()>0) {
-	//		
-	//		String aukera = Teklatua.getNireTeklatua().getAukerak();
-	//		g = this.bilatuGerlariaIzen(aukera);
-	//		g.mugitu();
-	//		listaGer.remove(g);
-	//	}
-	//}
-	//
-	//private Gerlaria bilatuGerlariaIzen(String pAukera) {
-	//	Iterator<Gerlaria> itr = this.getIterGer();
-	//	Gerlaria g = null;
-	//	while(itr.hasNext()) {
-	//		g = itr.next();
-	//		if(g.izenHauDu(pAukera)) return g;
-	//	}
-	//	return null;
-	//}
+	private void gerlariakMugitu() {
+		this.printGerlarienPos();
+		ArrayList<String> aukeraPosibleak =  gerlariLista();
+		Gerlaria g = null;
+		boolean atera = false;
+		while(aukeraPosibleak.size()>1&&!atera) {
+			
+			String aukera = Teklatua.getNireTeklatua().getAukerak(aukeraPosibleak);
+			if(aukera.equals("Atera")) {
+				atera=true;
+			} else {
+				g = this.bilatuGerlariaIzen(aukera);
+				g.mugitu();
+				aukeraPosibleak.remove(g.izena());
+			}
+			
+		}
+	}
+	
+	private Gerlaria bilatuGerlariaIzen(String pAukera) {
+		Iterator<Hiria> itr = this.getIterHir();
+		Hiria h = null;
+		while(itr.hasNext()) {
+			h = itr.next();
+			if(h.getGer().izenHauDu(pAukera)) return h.getGer();
+		}
+		return null;
+	}
+	
+	private ArrayList<String> gerlariLista(){
+		Iterator<Hiria> itr = this.getIterHir();
+		ArrayList<String> emaitza = new ArrayList<String>();
+		Hiria h = null;
+		while(itr.hasNext()) {
+			h = itr.next();
+			emaitza .add(h.getGer().izena());
+		}
+		return emaitza;
+	}
 
-	//private void printGerlarienPos() {
-	//	//esto sobra no?? por lo menos tal
-	//	//y como esta implementado
-	//	System.out.println("Zure gerlariak :");
-	//	for(int i = 0; i<gerlariak.size();i++)
-	//		this.gerlariak.get(i).printGerlaria();
-	//}
+	private void printGerlarienPos() {
+		System.out.println("Zure gerlariak :");
+		for(Hiria h : this.hiriak){
+			if(h.gerlariaDago())System.out.println(h.getGer().izena()+" gerlaria "+h.izena()+" hirian dago");
+			else h.getGer().printGerlaria();
+		}
+	}
 
 	private Hiria bilatuHiriaIzen(String pAukera) {
 		Iterator<Hiria> itr = this.getIterHir();

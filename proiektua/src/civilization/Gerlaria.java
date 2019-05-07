@@ -92,19 +92,9 @@ public class Gerlaria {
 		//gerlariari buruzko informazioa printeatzen ditu (pos)
 		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago.");
 	}
-	
-	public void eliminar(int i, int j) {
-		//gerlaria posizio batetik ezabatu
-		this.posX = i;
-		this.posY = j;
-	}
 
 	public void mugitu() {
-		/*
-		 * gerlaria mugitu
-		 * azkarregia bada mezu bat pantailaratu
-		 * eta berriro saiatu
-		 */
+		
 		int abiadura = this.V.maila();
 		this.printGerlaria();
 		System.out.println(abiadura + " kasila mugitu daiteke");
@@ -116,7 +106,7 @@ public class Gerlaria {
 			this.posX = newPosX;
 			this.posY = newPosY;
 		}else {
-			System.out.println("Muy Rapidou Bakerou, osea... berriro\n");
+			System.out.println(abiadura+" kasila baino  gehiago mugitu da");
 			this.mugitu();
 		}
 		
@@ -147,5 +137,10 @@ public class Gerlaria {
 		//gerlaria i,j posizioan badagoen true, bestela false
 		if(this.posX==i&&this.posY==j) return true;
 		else return false;
+	}
+
+	public String izena() {
+		// TODO Auto-generated method stub
+		return this.izena;
 	}
 }

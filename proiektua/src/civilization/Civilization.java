@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 public class Civilization {
 
-	private ArrayList<Jokalaria> jokalariak;
+	private Jokalaria jokalari1;
+	private Jokalaria jokalari2;
 	
 	private ArrayList<Hiria> hiriak;
 
@@ -13,7 +14,6 @@ public class Civilization {
 
 	private Civilization() {
 
-		this.jokalariak = new ArrayList<Jokalaria>();
 		this.hiriak = new ArrayList<Hiria>();
 	}
 
@@ -25,20 +25,14 @@ public class Civilization {
 		return nirePartida;
 	}
 	
-	private void gehituJokalaria(Jokalaria pJokalari) {
-		this.jokalariak.add(pJokalari);
-		
-	}
-	
 	private void hasieratu() {
-		this.jokalariak.clear();
 		Mapa.getNireMapa().erreseteatu();
 		
 		String izen;
 		// lehenengo jokalaria
 		System.out.println("Sartu lehenengo jokalariaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.gehituJokalaria((new Jokalaria(izen)));
+		this.jokalari1 = new Jokalaria(izen);
 		
 		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
@@ -52,7 +46,7 @@ public class Civilization {
 		
 		System.out.println("Sartu bigarren jokalariaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.gehituJokalaria((new Jokalaria(izen)));
+		this.jokalari2 = new Jokalaria(izen);
 		
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
@@ -63,8 +57,8 @@ public class Civilization {
 		
 		System.out.println("");
 				
-		jokalariak.get(0).gehituHiria(this.hiriak.get(0));
-		jokalariak.get(1).gehituHiria(this.hiriak.get(1));
+		jokalari1.gehituHiria(this.hiriak.get(0));
+		jokalari2.gehituHiria(this.hiriak.get(1));
 
 	}
 	
@@ -73,12 +67,8 @@ public class Civilization {
 		
 		int txandaCounter = 0;
 		while(!this.amaitu()) {
-			for(Jokalaria j : jokalariak) {
-				j.txanda();
-				Mapa.getNireMapa().print();
-				// pantaila garbitu hurrengo erabiltzailearentzako
-				// for (int i = 0; i < 50; ++i) System.out.println();
-			}
+			this.jokalari1.txanda();
+			this.jokalari2.txanda();
 			txandaCounter++;
 		}
 		
@@ -88,10 +78,8 @@ public class Civilization {
 	
 	private boolean amaitu(){
 		boolean emaitza=false;
-		for(Jokalaria j : jokalariak) {
-			if(j.hiriKop()==0)emaitza=true;
-			else emaitza = false;
-		}
+		if(this.jokalari1.hiriKop()==0)emaitza = true;
+		if(this.jokalari2.hiriKop()==0)emaitza = true;
 
 		return emaitza;
 	}
