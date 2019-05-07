@@ -36,7 +36,7 @@ public class Eraikina {
 
 	public boolean izenBeraDu(String pIzena) {
 		//izen bera badu true, bestela false
-		if(this.izena==pIzena) return true;
+		if(this.izena.equals(pIzena)) return true;
 		return false;
 	}
 	

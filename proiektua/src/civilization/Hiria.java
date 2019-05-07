@@ -74,17 +74,13 @@ public class Hiria {
 			if(aukera.equals("Atera")) {
 				
 			} else {
-				Eraikina eraikina = eraikinak.bilatuIzenez(aukera);
-				
-				if(!eraikinak.ezinDaEzerEraiki(this.urrea,this.harria,this.egurra)) {
-					while(!eraikina.eraikiDaiteke(this.urrea,this.harria,this.egurra)) {
-						eraikina = eraikinak.bilatuIzenez(aukera);
-						aukera = Teklatua.getNireTeklatua().getAukerak(eraikinak.falta());
-					}
+				System.out.println("GEG");
+				Eraikina eraikina = eraikinak.bilaturaikina(aukera);
+				if(eraikina.eraikiDaiteke(urrea, harria, egurra)) {
 					this.eraiki(eraikina);
+					pAukerak.remove("Eraiki");
 				}
-				pAukerak.remove("Eraiki");
-				this.administratu(pAukerak);
+				administratu(pAukerak);
 			}
 			
 			break;

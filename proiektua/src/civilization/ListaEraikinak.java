@@ -24,6 +24,7 @@ public class ListaEraikinak {
 		int i = 0;
 		while(i<bezteEraikinak.size()) {
 			bezteEraikinak.get(i).printKostua();
+			i++;
 		}
 		System.out.println("Aukeratu bat:");
 		
@@ -45,16 +46,7 @@ public class ListaEraikinak {
 		return this.dituzunEraikinak.iterator();
 	}
 
-	public Eraikina bilatuIzenez(String pIzena) {
-		Iterator<Eraikina> itr = this.getIteradorea();
-		Eraikina e = null;
-		while(itr.hasNext()) {
-			e = itr.next();
-			if(e.izenBeraDu(pIzena))return e;
-		}
-		return null;
-	}
-
+	
 	public void gehitu(Eraikina pEraikina) {
 		this.dituzunEraikinak.add(pEraikina);
 		this.bezteEraikinak.remove(pEraikina);
@@ -77,8 +69,18 @@ public class ListaEraikinak {
 		int i = 0;
 		while(i<bezteEraikinak.size()) {
 			falta.add(bezteEraikinak.get(i).getIzena());
+			i++;
 		}
 		return falta;
+	}
+
+	public Eraikina bilaturaikina(String aukera) {
+		for(Eraikina e : this.bezteEraikinak) {
+			if(e.izenBeraDu(aukera)) {
+				return e;
+			}
+		}
+		return null;
 	}
 	
 }

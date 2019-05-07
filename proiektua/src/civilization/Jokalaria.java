@@ -25,7 +25,7 @@ public class Jokalaria {
 	private void hiriakAdministratu() {
 		//izenaren arabera hiriak administratu
 		ArrayList<Hiria> listaHiri = hiriak;
-		ArrayList<Hiria> hiriErabiliak = new ArrayList<Hiria>();
+		ArrayList<String> aukerak = this.hiriIzenLista();
 		Hiria h = null;
 		while(listaHiri.size()>0) {
 			System.out.println("Zein hiri aukeratu nahi duzu :");
@@ -34,19 +34,14 @@ public class Jokalaria {
 				listaHiri.get(i).print();
 				i++;
 			}
-			String aukera = Teklatua.getNireTeklatua().getAukerak(this.hiriIzenLista());
+			String aukera = Teklatua.getNireTeklatua().getAukerak(aukerak);
 			h = this.bilatuHiriaIzen(aukera);
-			ArrayList<String> aukerak = new ArrayList<String>();
-			aukerak.add("Eraiki");
-			aukerak.add("Gerlaria");
-			h.administratu(aukerak);
-			hiriErabiliak.add(h);
+			ArrayList<String> aukerakH = new ArrayList<String>();
+			aukerakH.add("Eraiki");
+			aukerakH.add("Gerlaria");
+			h.administratu(aukerakH);
 			listaHiri.remove(h);
-		}
-		if(hiriErabiliak != null) {
-			for(Hiria hE : hiriErabiliak) {
-				listaHiri.add(hE);
-			}
+			aukerak.remove(aukera);
 		}
 	}
 	
