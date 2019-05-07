@@ -89,4 +89,14 @@ public class Mapa {
 	public int maxY() {
 		return this.mapa[1].length;
 	}
+
+	public void erreseteatu() {
+		mapa = new char[8][18];
+		
+		mapa[1][1]='H';
+		mapa[3][12]='h';
+		mapa[5][6]='h';
+		mapa[6][16]='H';
+		
+	}
 }

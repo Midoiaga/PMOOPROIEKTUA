@@ -67,7 +67,7 @@ public class Hiria {
 			eraikinak.printFalta();
 			
 			System.out.println("Eraikin bat aukeratu :");
-			aukera = Teklatua.getNireTeklatua().getAukerak(Aukerak.getAukerak().aukerakFiltro("EraikinIzenak"));
+			aukera = Teklatua.getNireTeklatua().getAukerak(eraikinak.falta());
 			Eraikina eraikina = eraikinak.bilatuIzenez(aukera);
 			
 			//Exceptions y cosas
@@ -77,7 +77,7 @@ public class Hiria {
 			if(!eraikinak.ezinDaEzerEraiki(this.urrea,this.harria,this.egurra)) {
 				while(!eraikina.eraikiDaiteke(this.urrea,this.harria,this.egurra)) {
 					eraikina = eraikinak.bilatuIzenez(aukera);
-					aukera = Teklatua.getNireTeklatua().getAukerak(Aukerak.getAukerak().aukerakFiltro("EraikinIzenak"));
+					aukera = Teklatua.getNireTeklatua().getAukerak(eraikinak.falta());
 				}
 				this.eraiki(eraikina);
 			}
