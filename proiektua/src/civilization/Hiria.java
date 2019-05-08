@@ -89,6 +89,7 @@ public class Hiria {
 			ArrayList<String> gerlariAukerak = new ArrayList<String>();
 			gerlariAukerak.add("Mugitu");
 			gerlariAukerak.add("Stats");
+			gerlariAukerak.add("Eraso");
 			this.gerlariaAdministratu(gerlariAukerak);
 			pAukerak.remove("Gerlaria");
 			this.administratu(pAukerak);
@@ -119,6 +120,30 @@ public class Hiria {
 			}
 			pAukerak.remove("Stats");
 			gerlariaAdministratu(pAukerak);
+			break;
+		case "Eraso":
+			ArrayList<String> erasoAukerak = new ArrayList<String>();
+			erasoAukerak.add("Hiria");
+			erasoAukerak.add("Gerlaria");
+			String erasoAukera = Teklatua.getNireTeklatua().getAukerak(erasoAukerak);
+			if(erasoAukera.equals("Hiria")) {
+				ArrayList<String> hiriAukerak = gerlaria.getPosBerekoHiriak();
+				if(hiriAukerak == null || hiriAukerak.isEmpty()) {
+					System.out.println("Ez daude hiriak gerlariaren posizioan");
+					break;
+				} else {
+					System.out.println("Sartu hiriaren izena: ");
+					String hiriAukera = Teklatua.getNireTeklatua().getAukerak(hiriAukerak);
+					this.gerlaria.hiriaEraso(hiriAukera);
+					this.gerlaria.printGerlaria();
+				}
+			}
+			/*
+			if(erasoAukerak.equals("Gerlaria")) {
+				this.gerlaria.gerlariEraso(pGerlaria);
+			}
+			*/
+			pAukerak.remove("Eraso");
 			break;
 		case "Atera":
 				
@@ -169,6 +194,7 @@ public class Hiria {
 	
 	public int erasoJaso(int pDMG) {
 		this.bizitza = this.bizitza - pDMG;
+		this.print();
 		return this.erasoa;
 	}
 }

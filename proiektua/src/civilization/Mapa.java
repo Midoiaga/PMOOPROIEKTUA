@@ -1,5 +1,7 @@
 package civilization;
 
+import java.util.ArrayList;
+
 public class Mapa {
 	
 	private char[][] mapa;
@@ -99,4 +101,16 @@ public class Mapa {
 		mapa[6][16]='H';
 		
 	}
+	/*
+	public ArrayList<Hiria> getHiriak(int i, int j) {
+		ArrayList<Hiria> emaitza = new ArrayList<Hiria>();
+		Iterator<Hiria> itr = emaitza.iterator();
+		return emaitza;
+	}
+	
+	public ArrayList<Gerlaria> getGerlariak(int i, int j) {
+		ArrayList<Gerlaria> emaitza = new ArrayList<Gerlaria>();
+		return emaitza;
+	}
+	*/
 }

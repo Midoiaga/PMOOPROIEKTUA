@@ -1,6 +1,7 @@
 package civilization;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Gerlaria {
 
@@ -12,6 +13,7 @@ public class Gerlaria {
 	private String izena;
 	private int posX;
 	private int posY;
+	private ArrayList<Hiria> posBerekoHiriak;
 	
 	public Gerlaria(String pIzena, int pX, int pY) {
 		//eraikitzailea
@@ -22,6 +24,7 @@ public class Gerlaria {
 		this.V = new Abiadura();
 		this.posX = pX;
 		this.posY = pY;
+		this.posBerekoHiriak = new ArrayList<Hiria>();
 	}
 	
 	public boolean hildaDago() {
@@ -113,9 +116,38 @@ public class Gerlaria {
 		
 	}
 	
-	public void hiriaEraso(Hiria pHiria) {
-		int dmg = pHiria.erasoJaso(this.A.maila());
-		this.HP.kenduBizitza(dmg);
+	public void hiriakJaso(ArrayList<Hiria> pHiriak) {
+		this.posBerekoHiriak.clear();
+		for(Hiria h : pHiriak) {
+			if(h.dago(posX, posY)) {
+				this.posBerekoHiriak.add(h);
+			}
+		}
+	}
+	
+	public ArrayList<String> getPosBerekoHiriak() {
+		ArrayList<String> emaitza = new ArrayList<String>();
+		Iterator<Hiria> itrHir = this.posBerekoHiriak.iterator();
+		Hiria oraingoHir = null;
+		while(itrHir.hasNext()) {
+			oraingoHir = itrHir.next();
+			emaitza.add(oraingoHir.getIzena());
+			System.out.println(oraingoHir.getIzena());
+		}
+		return emaitza;
+	}
+	
+	public void hiriaEraso(String pHiria) {
+		Iterator<Hiria> itrHir = this.posBerekoHiriak.iterator();
+		Hiria oraingoHir = null;
+		while(itrHir.hasNext()) {
+			oraingoHir = itrHir.next();
+			if(oraingoHir.getIzena().equals(pHiria)) {
+				int dmg = oraingoHir.erasoJaso(this.A.maila());
+				this.HP.kenduBizitza(dmg);
+			}
+		}
+
 	}
 	
 	public void gerlariEraso(Gerlaria pGerlaria) {
@@ -143,5 +175,13 @@ public class Gerlaria {
 	public String izena() {
 		// TODO Auto-generated method stub
 		return this.izena;
+	}
+	
+	public int getPosX() {
+		return this.posX;
+	}
+	
+	public int getPosY() {
+		return this.posY;
 	}
 }

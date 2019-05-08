@@ -51,7 +51,7 @@ public class Civilization {
 		
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 2, 4));
+		this.hiriak.add(new Hiria(izen, 8, 17));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(1).sortuGerlaria(izen);
@@ -68,14 +68,25 @@ public class Civilization {
 		
 		int txandaCounter = 0;
 		while(!this.amaitu()) {
+			this.jokalari1.posBerekoHiriak(this.hiriak);
 			this.jokalari1.txanda();
+			for(int i=0;i<10;i++) System.out.println();
 			this.jokalari2.txanda();
+			for(int i=0;i<10;i++) System.out.println();
 			txandaCounter++;
 		}
 		
 		System.out.println("Partidak " + txandaCounter + " txanda iraun du.");
 
 	}
+	
+	/*
+	public ArrayList<String> getHemengoHiriak(int pX, int pY) {
+		
+	}
+	*/
+
+	
 	
 	private boolean amaitu(){
 		boolean emaitza=false;

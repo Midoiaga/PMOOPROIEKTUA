@@ -19,7 +19,7 @@ public class Jokalaria {
 		System.out.println("");
 		System.out.println(this.izena + "-(r)en txanda");
 		this.hiriakAdministratu();
-		this.gerlariakMugitu();
+		//this.gerlariakMugitu();
 	}
 	
 	private void hiriakAdministratu() {
@@ -60,7 +60,14 @@ public class Jokalaria {
 		this.hiriak.add(pHiria);
 	}
 
-	
+	public void posBerekoHiriak(ArrayList<Hiria> pHiriak) {
+		Iterator<Gerlaria> itrGer = this.getIterGer();
+		Gerlaria oraingoGer = null;
+		while(itrGer.hasNext()) {
+			oraingoGer = itrGer.next();
+			oraingoGer.hiriakJaso(pHiriak);
+		}
+	}
 	
 	private void gerlariakMugitu() {
 		this.printGerlarienPos();
@@ -133,6 +140,15 @@ public class Jokalaria {
 			itrG.add(oraingoH.getGer());
 		}
 		return itrG.iterator();
+	}
+	
+	public ArrayList<Gerlaria> getGerlariak() {
+		ArrayList<Gerlaria> emaitza = new ArrayList<Gerlaria>();
+		Iterator<Gerlaria> itr = this.getIterGer();
+		while(itr.hasNext()) {
+			emaitza.add(itr.next());
+		}
+		return emaitza;
 	}
 
 	public boolean zerbaitDago(int i, int j) {
