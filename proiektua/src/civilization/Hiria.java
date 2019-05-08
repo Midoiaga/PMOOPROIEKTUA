@@ -122,10 +122,13 @@ public class Hiria {
 			gerlariaAdministratu(pAukerak);
 			break;
 		case "Eraso":
+			/*
 			ArrayList<String> erasoAukerak = new ArrayList<String>();
 			erasoAukerak.add("Hiria");
 			erasoAukerak.add("Gerlaria");
 			String erasoAukera = Teklatua.getNireTeklatua().getAukerak(erasoAukerak);
+			*/
+			String erasoAukera = "Hiria";
 			if(erasoAukera.equals("Hiria")) {
 				ArrayList<String> hiriAukerak = gerlaria.getPosBerekoHiriak();
 				if(hiriAukerak == null || hiriAukerak.isEmpty()) {
