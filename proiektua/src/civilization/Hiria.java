@@ -23,7 +23,7 @@ public class Hiria {
 		this.posX = pPosX;
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
-		this.bizitza = 100;
+		this.bizitza = 1;
 		this.gerlaria = null;
 		this.erasoa = 0;
 	}
@@ -197,8 +197,20 @@ public class Hiria {
 	
 	public int erasoJaso(int pDMG) {
 		this.bizitza = this.bizitza - pDMG;
-		this.print();
-		return this.erasoa;
+		if(!(this.bizitza<=0)) {
+			this.print();
+			return this.erasoa;
+		}
+		return 0;
+	}
+
+	public boolean konkistatu() {
+		if(this.bizitza <= 0) {
+			System.out.println("Hiria konkistatuta izan da");
+			this.bizitza = 50;
+			return true;
+		}
+		return false;
 	}
 }
 

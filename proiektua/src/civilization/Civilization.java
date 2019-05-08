@@ -2,6 +2,7 @@ package civilization;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Civilization {
 
@@ -67,15 +68,25 @@ public class Civilization {
 		this.hasieratu();
 		
 		int txandaCounter = 0;
-		while(!this.amaitu()) {
+		boolean martxan = true;
+		while(martxan) {
 			this.jokalari1.posBerekoHiriak(this.hiriak);
 			this.jokalari1.txanda();
 			for(int i=0;i<10;i++) System.out.println();
+			this.hiriKonkistatuak(hiriak);
+			if(this.amaitu()) {
+				martxan = false;
+				break;
+			}
 			
 			this.jokalari2.posBerekoHiriak(this.hiriak);
 			this.jokalari2.txanda();
 			for(int i=0;i<10;i++) System.out.println();
-			
+			this.hiriKonkistatuak(hiriak);
+			if(this.amaitu()) {
+				martxan = false;
+				break;
+			}			
 			txandaCounter++;
 		}
 		
@@ -88,8 +99,33 @@ public class Civilization {
 		
 	}
 	*/
-
 	
+	private void hiriKonkistatuak(ArrayList<Hiria> pHiriak) {
+		Iterator<Hiria> itr = pHiriak.iterator();
+		Hiria oraingoHir = null;
+		while(itr.hasNext()) {
+			oraingoHir = itr.next();
+			if(oraingoHir.konkistatu()) {
+				this.kenduHiria(oraingoHir);
+			}
+		}
+	}
+	
+	private void kenduHiria(Hiria pHiria) {
+		boolean j1 = this.jokalari1.kenduHiria(pHiria);
+		boolean j2 = this.jokalari2.kenduHiria(pHiria);
+		if(j1) {
+			pHiria.konkistatu();
+			this.jokalari2.gehituHiria(pHiria);
+			System.out.println("j2-ek eramaten du hiria");
+		}
+		if(j2) {
+			pHiria.konkistatu();
+			this.jokalari1.gehituHiria(pHiria);
+			System.out.println("j1-ek eramaten du hiria");
+		}
+		
+	}
 	
 	private boolean amaitu(){
 		boolean emaitza=false;

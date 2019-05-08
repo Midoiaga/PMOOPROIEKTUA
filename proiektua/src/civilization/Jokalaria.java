@@ -23,6 +23,7 @@ public class Jokalaria {
 	}
 	
 	private void hiriakAdministratu() {
+		System.out.println(this.hiriKop() + " hiri dituzu");
 		//izenaren arabera hiriak administratu
 		ArrayList<Hiria> listaHiri = hiriak;
 		ArrayList<Hiria> hiriErabiliak = new ArrayList<Hiria>();
@@ -58,6 +59,13 @@ public class Jokalaria {
 
 	public void gehituHiria(Hiria pHiria) {
 		this.hiriak.add(pHiria);
+	}
+	
+	public boolean kenduHiria(Hiria pHiria) {
+		if(this.hiriak.remove(pHiria)) {
+			return true;
+		}
+		return false;
 	}
 
 	public void posBerekoHiriak(ArrayList<Hiria> pHiriak) {
@@ -179,6 +187,7 @@ public class Jokalaria {
 	}
 
 	public int hiriKop() {
+		System.out.println(this.hiriak.size());
 		return this.hiriak.size();
 	}
 	
