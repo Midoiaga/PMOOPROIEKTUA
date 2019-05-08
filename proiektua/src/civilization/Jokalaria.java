@@ -187,7 +187,6 @@ public class Jokalaria {
 	}
 
 	public int hiriKop() {
-		System.out.println(this.hiriak.size());
 		return this.hiriak.size();
 	}
 	

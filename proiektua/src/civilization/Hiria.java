@@ -110,6 +110,7 @@ public class Hiria {
 		case "Mugitu":
 			this.gerlaria.mugitu();
 			pAukerak.remove("Mugitu");
+			pAukerak.remove("Eraso");
 			gerlariaAdministratu(pAukerak);
 			break;
 		case "Stats":
@@ -147,6 +148,7 @@ public class Hiria {
 			}
 			*/
 			pAukerak.remove("Eraso");
+			pAukerak.remove("Mugitu");
 			break;
 		case "Atera":
 				

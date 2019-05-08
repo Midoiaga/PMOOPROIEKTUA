@@ -38,7 +38,7 @@ public class Civilization {
 		
 		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 7, 17));
+		this.hiriak.add(new Hiria(izen, 5, 8));
 		System.out.println("Sartu lehenengo jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(0).sortuGerlaria(izen);
@@ -52,7 +52,7 @@ public class Civilization {
 		
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 8, 17));
+		this.hiriak.add(new Hiria(izen, 4, 8));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(1).sortuGerlaria(izen);
@@ -72,7 +72,7 @@ public class Civilization {
 		while(martxan) {
 			this.jokalari1.posBerekoHiriak(this.hiriak);
 			this.jokalari1.txanda();
-			for(int i=0;i<10;i++) System.out.println();
+			for(int i=0;i<50;i++) System.out.println();
 			this.hiriKonkistatuak(hiriak);
 			if(this.amaitu()) {
 				martxan = false;
@@ -81,7 +81,7 @@ public class Civilization {
 			
 			this.jokalari2.posBerekoHiriak(this.hiriak);
 			this.jokalari2.txanda();
-			for(int i=0;i<10;i++) System.out.println();
+			for(int i=0;i<50;i++) System.out.println();
 			this.hiriKonkistatuak(hiriak);
 			if(this.amaitu()) {
 				martxan = false;
@@ -91,6 +91,11 @@ public class Civilization {
 		}
 		
 		System.out.println("Partidak " + txandaCounter + " txanda iraun du.");
+		if(this.jokalari1.hiriKop()>this.jokalari2.hiriKop()) {
+			System.out.println("Lehenengo jokalariak irabazi du");
+		} else {
+			System.out.println("Bigarren jokalariak irabazi du");
+		}
 
 	}
 	
