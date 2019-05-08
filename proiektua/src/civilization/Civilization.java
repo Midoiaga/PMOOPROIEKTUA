@@ -71,8 +71,11 @@ public class Civilization {
 			this.jokalari1.posBerekoHiriak(this.hiriak);
 			this.jokalari1.txanda();
 			for(int i=0;i<10;i++) System.out.println();
+			
+			this.jokalari2.posBerekoHiriak(this.hiriak);
 			this.jokalari2.txanda();
 			for(int i=0;i<10;i++) System.out.println();
+			
 			txandaCounter++;
 		}
 		
