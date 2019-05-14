@@ -50,7 +50,8 @@ public class ListaEraikinak {
 	
 	public void gehitu(Eraikina pEraikina) {
 		this.dituzunEraikinak.add(pEraikina);
-		this.bezteEraikinak.remove(pEraikina);		
+		this.bezteEraikinak.remove(pEraikina);
+		
 	}
 
 	public boolean ezinDaEzerEraiki(int pUrrea, int pHarria, int pEgurra) {
