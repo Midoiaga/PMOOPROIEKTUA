@@ -7,6 +7,6 @@ public class HiriaEzDagoException extends Exception {
 	}
 	
 	public void printStackTrace() {
-		System.out.println("Sartu duzun aukera ez da existitzen, bezte bat sartu :");
+		System.out.println("Sartu duzun aukera ez da existitzen, beste bat sartu :");
 	}
 }
