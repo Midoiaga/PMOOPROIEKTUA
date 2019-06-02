@@ -35,6 +35,7 @@ public class Hiria {
 	public void sortuGerlaria(String pGerIzena) {
 		if(!this.gerlariaExistitzenDa()) {
 			this.gerlaria = new Gerlaria(pGerIzena, this.posX, this.posY);
+			System.out.println("Gerlari berri bat sortu da " + this.izena + " hirian.");
 		} else {
 			System.out.println("Gerlaria existitzen da jada hiri honetan:");
 			this.gerlaria.printGerlaria();
