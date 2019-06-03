@@ -38,7 +38,7 @@ public class Teklatua {
 	public String getAukerak(ArrayList<String> arrayList) {
 		String sar=this.sc.nextLine();
 		try {
-			if(arrayList.contains(sar)||sar.equals("Atera"))return sar;
+			if(arrayList.contains(sar) || sar.equals("Atera") || sar.equals("Ezer")) return sar;
 			throw new AukeraEzEgokiaException();
 		}catch(AukeraEzEgokiaException hEDE) {
 			hEDE.printStackTrace();

@@ -93,7 +93,7 @@ public class Gerlaria {
 	 
 	public void printGerlaria() {
 		//gerlariari buruzko informazioa printeatzen ditu (pos)
-		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago eta " + this.HP.getBal() +" bizitza puntuak");
+		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago eta " + this.HP.getBal() +" bizitza puntuak ditu");
 		System.out.println("Estadistikak: " + " HP=" + this.HP.maila() + " A=" + this.A.maila() + " D="+ this.D.maila() + " V=" + this.V.maila());
 	}
 

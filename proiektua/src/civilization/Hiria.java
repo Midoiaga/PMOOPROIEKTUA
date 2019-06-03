@@ -72,9 +72,7 @@ public class Hiria {
 			System.out.println("Eraikin bat aukeratu :");
 			aukera = Teklatua.getNireTeklatua().getAukerak(eraikinak.falta());
 			
-			if(aukera.equals("Atera")) {
-				
-			} else {
+			if(!aukera.equals("Atera")) {
 				System.out.println("GEG");
 				Eraikina eraikina = eraikinak.bilaturaikina(aukera);
 				if(eraikina.eraikiDaiteke(urrea, harria, egurra)) {

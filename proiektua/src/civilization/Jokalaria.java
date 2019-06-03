@@ -40,6 +40,12 @@ public class Jokalaria {
 			ArrayList<String> aukerak = new ArrayList<String>();
 			aukerak.add("Eraiki");
 			aukerak.add("Gerlaria");
+			aukerak.add("Atera");
+			aukerak.add("Ezer");
+			if(aukera.equals("Ezer") || aukera.equals("Atera")) {
+				//listaHiri.clear(); // ez du balio, jokalaria hiri gabe gelditzen da eta jokoa amaitzen da
+				break;
+			}
 			h.administratu(aukerak);
 			hiriErabiliak.add(h);
 			listaHiri.remove(h);
