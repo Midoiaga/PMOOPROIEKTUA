@@ -115,7 +115,7 @@ public class Hiria {
 			break;
 		case "Stats":
 			if(this.gerlariaDago()) {
-				this.urrea = this.gerlaria.aukerak(this.urrea);
+				this.urrea = this.gerlaria.aukerak(this.urrea, this.eraikinak);
 			} else {
 				System.out.println("Gerlaria ez dago hirian, ezin da hobetu");
 			}

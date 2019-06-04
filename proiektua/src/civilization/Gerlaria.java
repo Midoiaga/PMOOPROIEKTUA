@@ -32,42 +32,30 @@ public class Gerlaria {
 		return false;
 	}
 
-	public int aukerak(int pUrrea) {
+	public int aukerak(int pUrrea, ListaEraikinak eraikinak) {
 		ArrayList<String> aukerak = this.aukerak();
 		this.printAukerak(aukerak);
 		String aukera = Teklatua.getNireTeklatua().getAukerak(aukerak);
 		switch(aukera) {
 		case"Bizitza":
 			if(!this.HP.mailaMaxDauka()) {
-				if(this.HP.urreNahiko(pUrrea)) {
-					this.HP.gehituMaila();
-					pUrrea = this.HP.urreBerria(pUrrea);
-				}
+				pUrrea = HP.gehituMaila(pUrrea,eraikinak);
 			}
 			
 			break;
 		case"Indarra":
 			if(!this.A.mailaMaxDauka()) {
-				if(this.A.urreNahiko(pUrrea)) {
-					this.A.gehituMaila();
-					pUrrea = this.A.urreBerria(pUrrea);
-				}
+				pUrrea = A.gehituMaila(pUrrea,eraikinak);
 			}
 			break;
 		case"Defentza":
 			if(!this.D.mailaMaxDauka()) {
-				if(this.D.urreNahiko(pUrrea)) {
-					this.D.gehituMaila();
-					pUrrea = this.D.urreBerria(pUrrea);
-				}
+				pUrrea = D.gehituMaila(pUrrea,eraikinak);
 			}
 			break;
 		case"Abiadura":
 			if(!this.V.mailaMaxDauka()) {
-				if(this.V.urreNahiko(pUrrea)) {
-					this.V.gehituMaila();
-					pUrrea = this.V.urreBerria(pUrrea);
-				}
+				pUrrea = V.gehituMaila(pUrrea,eraikinak);
 			}
 			break;
 		case"Ezer":

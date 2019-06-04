@@ -3,9 +3,9 @@ package civilization;
 public abstract class Atributua {
 	
 	//atrib
-	private int maila;
-	private int mailaMax;
-	private int urreKost;
+	protected int maila;
+	protected int mailaMax;
+	protected int urreKost;
 	
 	public Atributua() {
 		this.maila = 1;
@@ -18,16 +18,15 @@ public abstract class Atributua {
 		else return false;
 	}
 	
-	public void gehituMaila() {
-		this.maila++;
-		this.urreKost=this.urreKost+100+(this.urreKost/4);
+	public int gehituMaila(int pUrrea, ListaEraikinak eraikinak) {
+		return 0;
 	}
 	
 	public int maila() {
 		return this.maila;
 	}
 	
-	public boolean urreNahiko(int pUrre) {
+	protected boolean urreNahiko(int pUrre) {
 		if(this.urreKost<=pUrre) return true;
 		else return false;
 	}
