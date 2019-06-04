@@ -1,6 +1,7 @@
 package civilization;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Gerlaria {
 
@@ -12,6 +13,7 @@ public class Gerlaria {
 	private String izena;
 	private int posX;
 	private int posY;
+	private ArrayList<Hiria> posBerekoHiriak;
 	
 	public Gerlaria(String pIzena, int pX, int pY) {
 		//eraikitzailea
@@ -22,6 +24,7 @@ public class Gerlaria {
 		this.V = new Abiadura();
 		this.posX = pX;
 		this.posY = pY;
+		this.posBerekoHiriak = new ArrayList<Hiria>();
 	}
 	
 	public boolean hildaDago() {
@@ -90,31 +93,63 @@ public class Gerlaria {
 	 
 	public void printGerlaria() {
 		//gerlariari buruzko informazioa printeatzen ditu (pos)
-		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago.");
+		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago eta " + this.HP.getBal() +" bizitza puntuak");
+		System.out.println("Estadistikak: " + " HP=" + this.HP.maila() + " A=" + this.A.maila() + " D="+ this.D.maila() + " V=" + this.V.maila());
 	}
 
-	public void mugitu() {
+	public void mugitu(int j) {
 		
 		int abiadura = this.V.maila();
 		this.printGerlaria();
 		System.out.println(abiadura + " kasila mugitu daiteke");
 		System.out.println("Sartu x ardatzeko posizio berria: ");
-		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxX());
+		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(MapaPartida.getNireMapa().maxX());
 		System.out.println("Sartu y adratzeko posizio berria: ");
-		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxY());
+		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(MapaPartida.getNireMapa().maxY());
 		if(((this.posX-newPosX)+(this.posY-newPosY))<=abiadura) {
 			this.posX = newPosX;
 			this.posY = newPosY;
+			if(j==1) MapaPartida.getNireMapa().updateJ1(newPosX,newPosY);
+			else MapaPartida.getNireMapa().updateJ2(newPosX,newPosY);
 		}else {
 			System.out.println(abiadura+" kasila baino  gehiago mugitu da");
-			this.mugitu();
+			this.mugitu(j);
 		}
 		
 	}
 	
-	public void hiriaEraso(Hiria pHiria) {
-		int dmg = pHiria.erasoJaso(this.A.maila());
-		this.HP.kenduBizitza(dmg);
+	public void hiriakJaso(ArrayList<Hiria> pHiriak) {
+		this.posBerekoHiriak.clear();
+		for(Hiria h : pHiriak) {
+			if(h.dago(posX, posY)) {
+				this.posBerekoHiriak.add(h);
+			}
+		}
+	}
+	
+	public ArrayList<String> getPosBerekoHiriak() {
+		ArrayList<String> emaitza = new ArrayList<String>();
+		Iterator<Hiria> itrHir = this.posBerekoHiriak.iterator();
+		Hiria oraingoHir = null;
+		while(itrHir.hasNext()) {
+			oraingoHir = itrHir.next();
+			emaitza.add(oraingoHir.getIzena());
+			System.out.println(oraingoHir.getIzena());
+		}
+		return emaitza;
+	}
+	
+	public void hiriaEraso(String pHiria) {
+		Iterator<Hiria> itrHir = this.posBerekoHiriak.iterator();
+		Hiria oraingoHir = null;
+		while(itrHir.hasNext()) {
+			oraingoHir = itrHir.next();
+			if(oraingoHir.getIzena().equals(pHiria)) {
+				int dmg = oraingoHir.erasoJaso(this.A.maila());
+				this.HP.kenduBizitza(dmg);
+			}
+		}
+
 	}
 	
 	public void gerlariEraso(Gerlaria pGerlaria) {
@@ -142,5 +177,13 @@ public class Gerlaria {
 	public String izena() {
 		// TODO Auto-generated method stub
 		return this.izena;
+	}
+	
+	public int getPosX() {
+		return this.posX;
+	}
+	
+	public int getPosY() {
+		return this.posY;
 	}
 }

@@ -15,17 +15,18 @@ public class Jokalaria {
 		this.izena = pIzena;
 	}
 	
-	public void txanda() {
+	public void txanda(int j) {
 		System.out.println("");
 		System.out.println(this.izena + "-(r)en txanda");
-		this.hiriakAdministratu();
-		this.gerlariakMugitu();
+		this.hiriakAdministratu(j);
+		//this.gerlariakMugitu();
 	}
 	
-	private void hiriakAdministratu() {
+	private void hiriakAdministratu(int j) {
+		System.out.println(this.hiriKop() + " hiri dituzu");
 		//izenaren arabera hiriak administratu
 		ArrayList<Hiria> listaHiri = hiriak;
-		ArrayList<String> aukerak = this.hiriIzenLista();
+		ArrayList<Hiria> hiriErabiliak = new ArrayList<Hiria>();
 		Hiria h = null;
 		while(listaHiri.size()>0) {
 			System.out.println("Zein hiri aukeratu nahi duzu :");
@@ -34,14 +35,19 @@ public class Jokalaria {
 				listaHiri.get(i).print();
 				i++;
 			}
-			String aukera = Teklatua.getNireTeklatua().getAukerak(aukerak);
+			String aukera = Teklatua.getNireTeklatua().getAukerak(this.hiriIzenLista());
 			h = this.bilatuHiriaIzen(aukera);
-			ArrayList<String> aukerakH = new ArrayList<String>();
-			aukerakH.add("Eraiki");
-			aukerakH.add("Gerlaria");
-			h.administratu(aukerakH);
+			ArrayList<String> aukerak = new ArrayList<String>();
+			aukerak.add("Eraiki");
+			aukerak.add("Gerlaria");
+			h.administratu(aukerak,j);
+			hiriErabiliak.add(h);
 			listaHiri.remove(h);
-			aukerak.remove(aukera);
+		}
+		if(hiriErabiliak != null) {
+			for(Hiria hE : hiriErabiliak) {
+				listaHiri.add(hE);
+			}
 		}
 	}
 	
@@ -54,10 +60,24 @@ public class Jokalaria {
 	public void gehituHiria(Hiria pHiria) {
 		this.hiriak.add(pHiria);
 	}
+	
+	public boolean kenduHiria(Hiria pHiria) {
+		if(this.hiriak.remove(pHiria)) {
+			return true;
+		}
+		return false;
+	}
 
+	public void posBerekoHiriak(ArrayList<Hiria> pHiriak) {
+		Iterator<Gerlaria> itrGer = this.getIterGer();
+		Gerlaria oraingoGer = null;
+		while(itrGer.hasNext()) {
+			oraingoGer = itrGer.next();
+			oraingoGer.hiriakJaso(pHiriak);
+		}
+	}
 	
-	
-	private void gerlariakMugitu() {
+	/*private void gerlariakMugitu() {
 		this.printGerlarienPos();
 		ArrayList<String> aukeraPosibleak =  gerlariLista();
 		Gerlaria g = null;
@@ -74,7 +94,7 @@ public class Jokalaria {
 			}
 			
 		}
-	}
+	}*/
 	
 	private Gerlaria bilatuGerlariaIzen(String pAukera) {
 		Iterator<Hiria> itr = this.getIterHir();
@@ -128,6 +148,15 @@ public class Jokalaria {
 			itrG.add(oraingoH.getGer());
 		}
 		return itrG.iterator();
+	}
+	
+	public ArrayList<Gerlaria> getGerlariak() {
+		ArrayList<Gerlaria> emaitza = new ArrayList<Gerlaria>();
+		Iterator<Gerlaria> itr = this.getIterGer();
+		while(itr.hasNext()) {
+			emaitza.add(itr.next());
+		}
+		return emaitza;
 	}
 
 	public boolean zerbaitDago(int i, int j) {
