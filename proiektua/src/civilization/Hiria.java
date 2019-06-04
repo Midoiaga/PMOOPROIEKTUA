@@ -35,7 +35,6 @@ public class Hiria {
 	public void sortuGerlaria(String pGerIzena) {
 		if(!this.gerlariaExistitzenDa()) {
 			this.gerlaria = new Gerlaria(pGerIzena, this.posX, this.posY);
-			System.out.println("Gerlari berri bat sortu da " + this.izena + " hirian.");
 		} else {
 			System.out.println("Gerlaria existitzen da jada hiri honetan:");
 			this.gerlaria.printGerlaria();
@@ -53,7 +52,7 @@ public class Hiria {
 		}
 	}
 
-	public void administratu(ArrayList<String> pAukerak) {
+	public void administratu(ArrayList<String> pAukerak, int j) {
 		
 		System.out.println("Zer egin nahi duzu:");
 		String aukera=null;
@@ -81,7 +80,7 @@ public class Hiria {
 					this.eraiki(eraikina);
 					pAukerak.remove("Eraiki");
 				}
-				administratu(pAukerak);
+				administratu(pAukerak, j);
 			}
 			
 			break;
@@ -91,9 +90,9 @@ public class Hiria {
 			gerlariAukerak.add("Mugitu");
 			gerlariAukerak.add("Stats");
 			gerlariAukerak.add("Eraso");
-			this.gerlariaAdministratu(gerlariAukerak);
+			this.gerlariaAdministratu(gerlariAukerak, j);
 			pAukerak.remove("Gerlaria");
-			this.administratu(pAukerak);
+			this.administratu(pAukerak, j);
 			break;
 		case "Atera":
 			
@@ -101,7 +100,7 @@ public class Hiria {
 		
 	}
 	
-	public void gerlariaAdministratu(ArrayList<String> pAukerak) {
+	public void gerlariaAdministratu(ArrayList<String> pAukerak, int j) {
 		this.gerlaria.printGerlaria();
 		System.out.println("Zer egin nahi duzu:");
 		this.printAukerak(pAukerak);
@@ -109,10 +108,10 @@ public class Hiria {
 			
 		switch(gerlariAukera) {
 		case "Mugitu":
-			this.gerlaria.mugitu();
+			this.gerlaria.mugitu(j);
 			pAukerak.remove("Mugitu");
 			pAukerak.remove("Eraso");
-			gerlariaAdministratu(pAukerak);
+			gerlariaAdministratu(pAukerak, j);
 			break;
 		case "Stats":
 			if(this.gerlariaDago()) {
@@ -121,15 +120,10 @@ public class Hiria {
 				System.out.println("Gerlaria ez dago hirian, ezin da hobetu");
 			}
 			pAukerak.remove("Stats");
-			gerlariaAdministratu(pAukerak);
+			gerlariaAdministratu(pAukerak, j);
 			break;
 		case "Eraso":
-			/*
-			ArrayList<String> erasoAukerak = new ArrayList<String>();
-			erasoAukerak.add("Hiria");
-			erasoAukerak.add("Gerlaria");
-			String erasoAukera = Teklatua.getNireTeklatua().getAukerak(erasoAukerak);
-			*/
+			
 			String erasoAukera = "Hiria";
 			if(erasoAukera.equals("Hiria")) {
 				ArrayList<String> hiriAukerak = gerlaria.getPosBerekoHiriak();

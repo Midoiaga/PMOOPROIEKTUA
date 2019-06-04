@@ -28,7 +28,7 @@ public class Civilization {
 	}
 	
 	private void hasieratu() {
-		Mapa.getNireMapa().erreseteatu();
+		MapaPartida.getNireMapa().erreseteatu();
 		
 		String izen;
 		// lehenengo jokalaria
@@ -38,7 +38,7 @@ public class Civilization {
 		
 		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 5, 8));
+		this.hiriak.add(new Hiria(izen, 1, 1));
 		System.out.println("Sartu lehenengo jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(0).sortuGerlaria(izen);
@@ -52,7 +52,7 @@ public class Civilization {
 		
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 4, 8));
+		this.hiriak.add(new Hiria(izen, 6, 16));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(1).sortuGerlaria(izen);
@@ -70,17 +70,20 @@ public class Civilization {
 		int txandaCounter = 0;
 		boolean martxan = true;
 		while(martxan) {
+			MapaPartida.getNireMapa().printJ1();
 			this.jokalari1.posBerekoHiriak(this.hiriak);
-			this.jokalari1.txanda();
+			this.jokalari1.txanda(1);
+			MapaPartida.getNireMapa().printJ1();
 			for(int i=0;i<50;i++) System.out.println();
 			this.hiriKonkistatuak(hiriak);
 			if(this.amaitu()) {
 				martxan = false;
 				break;
 			}
-			
+			MapaPartida.getNireMapa().printJ2();
 			this.jokalari2.posBerekoHiriak(this.hiriak);
-			this.jokalari2.txanda();
+			this.jokalari2.txanda(2);
+			MapaPartida.getNireMapa().printJ1();
 			for(int i=0;i<50;i++) System.out.println();
 			this.hiriKonkistatuak(hiriak);
 			if(this.amaitu()) {
@@ -156,7 +159,7 @@ public class Civilization {
 							"                                                                                                             \r\n" + 
 							"                                                                                                             \r\n" + 
 							"");
-					System.out.println("Maparen tamaina " + Mapa.getNireMapa().maxX() + "," + Mapa.getNireMapa().maxY() + " da.");
+					System.out.println("Maparen tamaina " + MapaPartida.getNireMapa().maxX() + "," + MapaPartida.getNireMapa().maxY() + " da.");
 					
 					Civilization.getNirePartida().partida();
 					

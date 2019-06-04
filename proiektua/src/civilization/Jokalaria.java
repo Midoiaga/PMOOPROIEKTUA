@@ -15,14 +15,14 @@ public class Jokalaria {
 		this.izena = pIzena;
 	}
 	
-	public void txanda() {
+	public void txanda(int j) {
 		System.out.println("");
 		System.out.println(this.izena + "-(r)en txanda");
-		this.hiriakAdministratu();
+		this.hiriakAdministratu(j);
 		//this.gerlariakMugitu();
 	}
 	
-	private void hiriakAdministratu() {
+	private void hiriakAdministratu(int j) {
 		System.out.println(this.hiriKop() + " hiri dituzu");
 		//izenaren arabera hiriak administratu
 		ArrayList<Hiria> listaHiri = hiriak;
@@ -40,7 +40,7 @@ public class Jokalaria {
 			ArrayList<String> aukerak = new ArrayList<String>();
 			aukerak.add("Eraiki");
 			aukerak.add("Gerlaria");
-			h.administratu(aukerak);
+			h.administratu(aukerak,j);
 			hiriErabiliak.add(h);
 			listaHiri.remove(h);
 		}
@@ -77,7 +77,7 @@ public class Jokalaria {
 		}
 	}
 	
-	private void gerlariakMugitu() {
+	/*private void gerlariakMugitu() {
 		this.printGerlarienPos();
 		ArrayList<String> aukeraPosibleak =  gerlariLista();
 		Gerlaria g = null;
@@ -94,7 +94,7 @@ public class Jokalaria {
 			}
 			
 		}
-	}
+	}*/
 	
 	private Gerlaria bilatuGerlariaIzen(String pAukera) {
 		Iterator<Hiria> itr = this.getIterHir();

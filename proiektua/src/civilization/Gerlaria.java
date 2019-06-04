@@ -97,21 +97,23 @@ public class Gerlaria {
 		System.out.println("Estadistikak: " + " HP=" + this.HP.maila() + " A=" + this.A.maila() + " D="+ this.D.maila() + " V=" + this.V.maila());
 	}
 
-	public void mugitu() {
+	public void mugitu(int j) {
 		
 		int abiadura = this.V.maila();
 		this.printGerlaria();
 		System.out.println(abiadura + " kasila mugitu daiteke");
 		System.out.println("Sartu x ardatzeko posizio berria: ");
-		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxX());
+		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(MapaPartida.getNireMapa().maxX());
 		System.out.println("Sartu y adratzeko posizio berria: ");
-		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(Mapa.getNireMapa().maxY());
+		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(MapaPartida.getNireMapa().maxY());
 		if(((this.posX-newPosX)+(this.posY-newPosY))<=abiadura) {
 			this.posX = newPosX;
 			this.posY = newPosY;
+			if(j==1) MapaPartida.getNireMapa().updateJ1(newPosX,newPosY);
+			else MapaPartida.getNireMapa().updateJ2(newPosX,newPosY);
 		}else {
 			System.out.println(abiadura+" kasila baino  gehiago mugitu da");
-			this.mugitu();
+			this.mugitu(j);
 		}
 		
 	}
