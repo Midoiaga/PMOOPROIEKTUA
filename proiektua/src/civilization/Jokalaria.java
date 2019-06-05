@@ -79,6 +79,15 @@ public class Jokalaria {
 			oraingoGer.hiriakJaso(pHiriak);
 		}
 	}
+	
+	public void posBerekoGerlariak(ArrayList<Gerlaria> pGerlariak) {
+		Iterator<Gerlaria> itrGer = this.getIterGer();
+		Gerlaria oraingoGer = null;
+		while(itrGer.hasNext()) {
+			oraingoGer = itrGer.next();
+			oraingoGer.gerlariakJaso(pGerlariak);
+		}
+	}
 
 	private Gerlaria bilatuGerlariaIzen(String pAukera) {
 		Iterator<Hiria> itr = this.getIterHir();

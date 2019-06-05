@@ -26,6 +26,7 @@ public class Gerlaria {
 		this.posX = pX;
 		this.posY = pY;
 		this.posBerekoHiriak = new ArrayList<Hiria>();
+		this.posBerekoGerlariak = new ArrayList<Gerlaria>();
 	}
 	
 	public boolean hildaDago() {
@@ -116,6 +117,15 @@ public class Gerlaria {
 		}
 	}
 	
+	public void gerlariakJaso(ArrayList<Gerlaria> pGerlariak) {
+		this.posBerekoGerlariak.clear();
+		for(Gerlaria g : pGerlariak) {
+			if(g.dago(posX, posY)) {
+				this.posBerekoGerlariak.add(g);
+			}
+		}
+	}
+	
 	public ArrayList<String> getPosBerekoHiriak() {
 		ArrayList<String> emaitza = new ArrayList<String>();
 		Iterator<Hiria> itrHir = this.posBerekoHiriak.iterator();
@@ -124,6 +134,18 @@ public class Gerlaria {
 			oraingoHir = itrHir.next();
 			emaitza.add(oraingoHir.getIzena());
 			System.out.println(oraingoHir.getIzena());
+		}
+		return emaitza;
+	}
+
+	public ArrayList<String> getPosBerekoGerlariak() {
+		Iterator<Gerlaria> itr = this.posBerekoGerlariak.iterator();
+		ArrayList<String> emaitza = new ArrayList<String>();
+		Gerlaria i = null;
+		while(itr.hasNext()) {
+			i = itr.next();
+			emaitza.add(i.getIzena());
+			System.out.println();
 		}
 		return emaitza;
 	}
@@ -188,8 +210,4 @@ public class Gerlaria {
 		return this.posY;
 	}
 
-	public ArrayList<String> getPosBerekoGerlariak() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

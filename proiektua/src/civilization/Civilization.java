@@ -10,12 +10,14 @@ public class Civilization {
 	private Jokalaria jokalari2;
 	
 	private ArrayList<Hiria> hiriak;
+	private ArrayList<Gerlaria> gerlariak;
 
 	private static Civilization nirePartida = null;
 
 	private Civilization() {
 
 		this.hiriak = new ArrayList<Hiria>();
+		this.gerlariak = new ArrayList<Gerlaria>();
 	}
 
 	public static Civilization getNirePartida() {
@@ -38,7 +40,8 @@ public class Civilization {
 		
 		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 1, 1));
+		//la pongo en 5,8 para probar mas facilmente
+		this.hiriak.add(new Hiria(izen, 5, 8));
 		System.out.println("Sartu lehenengo jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(0).sortuGerlaria(izen);
@@ -52,7 +55,8 @@ public class Civilization {
 		
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		this.hiriak.add(new Hiria(izen, 6, 16));
+		//la pongo en 4,8 para probar mas facilmente
+		this.hiriak.add(new Hiria(izen, 4, 8));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(1).sortuGerlaria(izen);
@@ -72,6 +76,7 @@ public class Civilization {
 		while(martxan) {
 			MapaPartida.getNireMapa().printJ1();
 			this.jokalari1.posBerekoHiriak(this.hiriak);
+			this.jokalari1.posBerekoGerlariak(this.gerlariak);
 			this.jokalari1.txanda(1);
 			MapaPartida.getNireMapa().printJ1();
 			for(int i=0;i<50;i++) System.out.println();
@@ -82,6 +87,7 @@ public class Civilization {
 			}
 			MapaPartida.getNireMapa().printJ2();
 			this.jokalari2.posBerekoHiriak(this.hiriak);
+			this.jokalari2.posBerekoGerlariak(this.gerlariak);
 			this.jokalari2.txanda(2);
 			MapaPartida.getNireMapa().printJ1();
 			for(int i=0;i<50;i++) System.out.println();

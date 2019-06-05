@@ -141,7 +141,7 @@ public class Hiria {
 				}
 			}
 			
-			if(erasoAukerak.equals("Gerlaria")) {
+			if(erasoAukera.equals("Gerlaria")) {
 				ArrayList<String> gerlariAukerak = gerlaria.getPosBerekoGerlariak();
 				if(gerlariAukerak == null || gerlariAukerak.isEmpty()) {
 					System.out.println("Ez daude gerlaririk zure gerlariaren posizioan");
