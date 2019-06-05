@@ -40,6 +40,9 @@ public class Jokalaria {
 			ArrayList<String> aukerak = new ArrayList<String>();
 			aukerak.add("Eraiki");
 			aukerak.add("Gerlaria");
+			if(aukera.equals("Atera") || aukera.equals("Ezer")) {
+				break;
+			}
 			h.administratu(aukerak,j);
 			hiriErabiliak.add(h);
 			listaHiri.remove(h);
@@ -190,4 +193,7 @@ public class Jokalaria {
 		return this.hiriak.size();
 	}
 	
+	public String getIzena() {
+		return this.izena;
+	}
 }
