@@ -95,9 +95,9 @@ public class Civilization {
 		
 		System.out.println("Partidak " + txandaCounter + " txanda iraun du.");
 		if(this.jokalari1.hiriKop()>this.jokalari2.hiriKop()) {
-			System.out.println("Lehenengo jokalariak irabazi du");
+			System.out.println(jokalari1.getIzena() + " jokalariak irabazi du");
 		} else {
-			System.out.println("Bigarren jokalariak irabazi du");
+			System.out.println(jokalari2.getIzena() + " jokalariak irabazi du");
 		}
 
 	}
@@ -125,12 +125,12 @@ public class Civilization {
 		if(j1) {
 			pHiria.konkistatu();
 			this.jokalari2.gehituHiria(pHiria);
-			System.out.println("j2-ek eramaten du hiria");
+			System.out.println(jokalari2.getIzena() + "-k (j2) eramaten du hiria");
 		}
 		if(j2) {
 			pHiria.konkistatu();
 			this.jokalari1.gehituHiria(pHiria);
-			System.out.println("j1-ek eramaten du hiria");
+			System.out.println(jokalari1.getIzena() + "-k (j1) eramaten du hiria");
 		}
 		
 	}
