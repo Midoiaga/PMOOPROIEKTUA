@@ -79,26 +79,7 @@ public class Jokalaria {
 			oraingoGer.hiriakJaso(pHiriak);
 		}
 	}
-	
-	/*private void gerlariakMugitu() {
-		this.printGerlarienPos();
-		ArrayList<String> aukeraPosibleak =  gerlariLista();
-		Gerlaria g = null;
-		boolean atera = false;
-		while(aukeraPosibleak.size()>1&&!atera) {
-			
-			String aukera = Teklatua.getNireTeklatua().getAukerak(aukeraPosibleak);
-			if(aukera.equals("Atera")) {
-				atera=true;
-			} else {
-				g = this.bilatuGerlariaIzen(aukera);
-				g.mugitu();
-				aukeraPosibleak.remove(g.izena());
-			}
-			
-		}
-	}*/
-	
+
 	private Gerlaria bilatuGerlariaIzen(String pAukera) {
 		Iterator<Hiria> itr = this.getIterHir();
 		Hiria h = null;

@@ -14,6 +14,7 @@ public class Gerlaria {
 	private int posX;
 	private int posY;
 	private ArrayList<Hiria> posBerekoHiriak;
+	private ArrayList<Gerlaria> posBerekoGerlariak;
 	
 	public Gerlaria(String pIzena, int pX, int pY) {
 		//eraikitzailea
@@ -140,9 +141,21 @@ public class Gerlaria {
 
 	}
 	
-	public void gerlariEraso(Gerlaria pGerlaria) {
-		int dmg = pGerlaria.erasoJaso(this.A.maila());
-		this.HP.kenduBizitza(dmg);
+	public void gerlariEraso(String pGerlaria) {
+		//int dmg = pGerlaria.erasoJaso(this.A.maila());
+		Iterator<Gerlaria> itrGer = this.posBerekoGerlariak.iterator();
+		Gerlaria oraingoGer = null;
+		while(itrGer.hasNext()) {
+			oraingoGer = itrGer.next();
+			if(oraingoGer.getIzena().equals(pGerlaria)) {
+				int dmg = oraingoGer.erasoJaso(this.A.maila());
+				this.HP.kenduBizitza(dmg);
+			}
+		}
+	}
+
+	private String getIzena() {
+		return this.izena;
 	}
 
 	public int erasoJaso(int pDMG) {
@@ -173,5 +186,10 @@ public class Gerlaria {
 	
 	public int getPosY() {
 		return this.posY;
+	}
+
+	public ArrayList<String> getPosBerekoGerlariak() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
