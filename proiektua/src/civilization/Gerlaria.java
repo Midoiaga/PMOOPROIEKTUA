@@ -145,7 +145,7 @@ public class Gerlaria {
 		while(itr.hasNext()) {
 			i = itr.next();
 			emaitza.add(i.getIzena());
-			System.out.println();
+			System.out.println(i.getIzena());
 		}
 		return emaitza;
 	}

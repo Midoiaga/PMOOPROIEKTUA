@@ -124,6 +124,7 @@ public class Hiria {
 			break;
 		case "Eraso":
 			ArrayList<String> erasoAukerak = new ArrayList<String>();
+			boolean erasoEginDa = false;
 			erasoAukerak.add("Hiria");
 			erasoAukerak.add("Gerlaria");
 			System.out.println("Hiria ala Gerlaria erasotu? ");
@@ -136,6 +137,8 @@ public class Hiria {
 				} else {
 					System.out.println("Sartu hiriaren izena: ");
 					String hiriAukera = Teklatua.getNireTeklatua().getAukerak(hiriAukerak);
+					if(hiriAukera.equals("Atera") || hiriAukera.equals("Ezer")) break;
+					erasoEginDa = true;
 					this.gerlaria.hiriaEraso(hiriAukera);
 					this.gerlaria.printGerlaria();
 				}
@@ -143,12 +146,15 @@ public class Hiria {
 			
 			if(erasoAukera.equals("Gerlaria")) {
 				ArrayList<String> gerlariAukerak = gerlaria.getPosBerekoGerlariak();
-				if(gerlariAukerak == null || gerlariAukerak.isEmpty()) {
+				if(gerlariAukerak == null) {
 					System.out.println("Ez daude gerlaririk zure gerlariaren posizioan");
 					break;
 				} else {
 					System.out.println("Sartu gerlariaren izena: ");
+					this.printAukerak(gerlariAukerak);
 					String gerlariAukera2 = Teklatua.getNireTeklatua().getAukerak(gerlariAukerak);
+					if(gerlariAukera2.equals("Atera") || gerlariAukera2.equals("Ezer")) break;
+					erasoEginDa = true;
 					this.gerlaria.gerlariEraso(gerlariAukera2);
 					this.gerlaria.printGerlaria();
 				}

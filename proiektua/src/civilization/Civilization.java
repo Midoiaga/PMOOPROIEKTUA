@@ -68,6 +68,19 @@ public class Civilization {
 
 	}
 	
+	//no se me ocurre otra forma :(
+	private void gerlariakEguneratu() {
+		Iterator<Hiria> itrHir = this.hiriak.iterator();
+		this.gerlariak.clear();
+		Hiria hir = null;
+		while(itrHir.hasNext()) {
+			hir = itrHir.next();
+			if(hir.gerlariaExistitzenDa()) {
+				this.gerlariak.add(hir.getGer());
+			}
+		}
+	}
+	
 	public void partida() {
 		this.hasieratu();
 		
@@ -75,6 +88,7 @@ public class Civilization {
 		boolean martxan = true;
 		while(martxan) {
 			MapaPartida.getNireMapa().printJ1();
+			this.gerlariakEguneratu();
 			this.jokalari1.posBerekoHiriak(this.hiriak);
 			this.jokalari1.posBerekoGerlariak(this.gerlariak);
 			this.jokalari1.txanda(1);
@@ -86,6 +100,7 @@ public class Civilization {
 				break;
 			}
 			MapaPartida.getNireMapa().printJ2();
+			this.gerlariakEguneratu();
 			this.jokalari2.posBerekoHiriak(this.hiriak);
 			this.jokalari2.posBerekoGerlariak(this.gerlariak);
 			this.jokalari2.txanda(2);
