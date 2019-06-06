@@ -17,7 +17,7 @@ public class Bizitza extends Atributua {
 	
 	public int gehituMaila(int pUrrea, ListaEraikinak eraikinak) {
 		if(urreNahiko(pUrrea)) {
-			if(eraikinak.bilaturaikina("Zerratokia")!=null) {
+			if(eraikinak.daukazuEraikina("Zerratokia")!=null) {
 				this.maila++;
 				pUrrea=pUrrea-this.urreKost;
 				this.urreKost=this.urreKost+100+(this.urreKost/4);
