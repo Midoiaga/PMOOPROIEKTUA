@@ -84,4 +84,13 @@ public class ListaEraikinak {
 		return null;
 	}
 	
+	public Eraikina daukazuEraikina(String aukera) {
+		for(Eraikina e : this.dituzunEraikinak) {
+			if(e.izenBeraDu(aukera)) {
+				return e;
+			}
+		}
+		return null;
+	}
+	
 }
