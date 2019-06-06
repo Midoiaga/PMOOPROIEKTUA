@@ -4,7 +4,7 @@ public class Bizitza extends Atributua {
 	private int balioa;
 	public Bizitza() {
 		super();
-		this.balioa = 10;
+		this.balioa = 20;
 	}
 	
 	public int getBal() {

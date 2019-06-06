@@ -23,7 +23,7 @@ public class Hiria {
 		this.posX = pPosX;
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
-		this.bizitza = 8;
+		this.bizitza = 100;
 		this.gerlaria = null;
 		this.erasoa = 1;
 	}
