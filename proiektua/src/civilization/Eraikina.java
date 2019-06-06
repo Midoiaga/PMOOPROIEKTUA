@@ -23,7 +23,7 @@ public class Eraikina {
 	
 	public void printKostua() {
 		//eraikina eraikitzeko beharrezkoak diren baliabideak printeatzen ditu
-		System.out.println(izena+" eraikina eraikitzeak, urreko "+urreKostua+", egurreko "+egurreKostua+" eta harriko "+harriKostua+" kostatzen du.");	
+		System.out.println("- " + izena+" eraikina eraikitzeak, urreko "+urreKostua+", egurreko "+egurreKostua+" eta harriko "+harriKostua+" kostatzen du.");	
 	}
 
 	public boolean eraikiDaiteke(int pUrrea, int pHarria, int pEgurra) {

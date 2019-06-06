@@ -14,6 +14,8 @@ public class MapaPartida {
 		mapa.set(1 , 1 , 'H');
 		mapa.set(3 , 12, 'h');
 		mapa.set(5 , 6 , 'h');
+		mapa.set(2, 7, 'h');
+		mapa.set(5, 11, 'h');
 		mapa.set(6 , 16, 'H');
 		
 		ikusiJ1 = new Mapa(8,18);
@@ -67,6 +69,8 @@ public class MapaPartida {
 		mapa.set(1 , 1 , 'H');
 		mapa.set(3 , 12, 'h');
 		mapa.set(5 , 6 , 'h');
+		mapa.set(2, 7, 'h');
+		mapa.set(5, 11, 'h');
 		mapa.set(6 , 16, 'H');
 	}
 }
