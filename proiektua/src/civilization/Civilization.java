@@ -40,8 +40,7 @@ public class Civilization {
 		
 		System.out.println("Sartu lehenengo jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		//la pongo en 5,8 para probar mas facilmente
-		this.hiriak.add(new Hiria(izen, 5, 8));
+		this.hiriak.add(new Hiria(izen, 1, 1));
 		System.out.println("Sartu lehenengo jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(0).sortuGerlaria(izen);
@@ -55,8 +54,7 @@ public class Civilization {
 		
 		System.out.println("Sartu bigarren jokalariaren hiri inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
-		//la pongo en 4,8 para probar mas facilmente
-		this.hiriak.add(new Hiria(izen, 4, 8));
+		this.hiriak.add(new Hiria(izen, 6, 16));
 		System.out.println("Sartu bigarren jokalariaren gerlari inizialaren izena: ");
 		izen = Teklatua.getNireTeklatua().irakurriIzena();
 		this.hiriak.get(1).sortuGerlaria(izen);
@@ -65,6 +63,11 @@ public class Civilization {
 				
 		jokalari1.gehituHiria(this.hiriak.get(0));
 		jokalari2.gehituHiria(this.hiriak.get(1));
+
+        this.hiriak.add(new Hiria("Bilbao", 3, 12));
+        this.hiriak.add(new Hiria("Barcelona", 5 ,6));
+        this.hiriak.add(new Hiria("Ceres", 2, 7));
+        this.hiriak.add(new Hiria("Mundaka", 5, 11));
 
 	}
 	
