@@ -16,14 +16,14 @@ public class Hiria {
 	private int erasoa;
 		
 	public Hiria(String pHiriIzena, int pPosX, int pPosY){
-		this.urrea = 100;
-		this.egurra = 100;
-		this.harria = 100;
+		this.urrea = 90;
+		this.egurra = 90;
+		this.harria = 90;
 		this.izena = pHiriIzena;
 		this.posX = pPosX;
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
-		this.bizitza = 100;
+		this.bizitza = 40;
 		this.gerlaria = null;
 		this.erasoa = 2;
 	}
@@ -45,7 +45,7 @@ public class Hiria {
 	}
 
 	public void print() {
-		System.out.println(izena + " hiria(" + posX + "," + posY + ")" + " HP: " + this.bizitza);
+		System.out.println(izena + " hiria(" + posX + "," + posY + ")" + " BizitzaPuntuak: " + this.bizitza);
 	}
 	
 	private void printAukerak(ArrayList<String> pAuk) {
@@ -53,8 +53,16 @@ public class Hiria {
 			System.out.println("-" + a);
 		}
 	}
+	
+	private void printBaliabideak() {
+		System.out.println("Hiri honen lehengaiak dira :");
+		System.out.println("-Urrea: "+this.urrea);
+		System.out.println("-Egurra: "+this.egurra);
+		System.out.println("-Harria: "+this.harria);
+	}
 
 	public void administratu(ArrayList<String> pAukerak, int j) {
+		this.print();
 		System.out.println("Zer egin nahi duzu:");
 		String aukera=null;
 		this.printAukerak(pAukerak);
@@ -62,11 +70,7 @@ public class Hiria {
 		this.sortuGerlaria();
 		switch(aukera) {
 		case "Eraiki":
-			
-			System.out.println("Hiri honen lehengaiak dira :");
-			System.out.println("-Urrea: "+this.urrea);
-			System.out.println("-Egurra: "+this.egurra);
-			System.out.println("-Harria: "+this.harria);
+			this.printBaliabideak();
 			eraikinak.printDaudenak();
 			eraikinak.printFalta();
 			
@@ -74,9 +78,8 @@ public class Hiria {
 			aukera = Teklatua.getNireTeklatua().getAukerak(eraikinak.falta());
 			
 			if(aukera.equals("Atera") || aukera.equals("Ezer")) {
-				break;
+				
 			} else {
-				System.out.println("GEG");
 				Eraikina eraikina = eraikinak.bilaturaikina(aukera);
 				if(eraikina.eraikiDaiteke(urrea, harria, egurra)) {
 					this.eraiki(eraikina);
@@ -94,6 +97,10 @@ public class Hiria {
 			gerlariAukerak.add("Eraso");
 			this.gerlariaAdministratu(gerlariAukerak, j);
 			pAukerak.remove("Gerlaria");
+			this.administratu(pAukerak, j);
+			break;
+		case "Baliabideak":
+			this.printBaliabideak();
 			this.administratu(pAukerak, j);
 			break;
 		case "Atera":
@@ -228,13 +235,14 @@ public class Hiria {
 	public boolean konkistatu() {
 		if(this.bizitza <= 0) {
 			System.out.println("Hiria konkistatuta izan da");
-			this.bizitza = 50;
+			this.bizitza = 20;
 			return true;
 		}
 		return false;
 	}
 
-	public void baliabideakLortu(int plus) {
+	public void baliabideakLortu(int pPlus) {
+		int plus = pPlus + (eraikinak.zenbat())*10;
 		this.egurra = this.egurra + plus;
 		this.urrea = this.urrea + plus;
 		this.harria = this.harria + plus;

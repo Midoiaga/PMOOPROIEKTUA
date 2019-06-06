@@ -44,6 +44,7 @@ public class Jokalaria {
 			ArrayList<String> aukerak = new ArrayList<String>();
 			aukerak.add("Eraiki");
 			aukerak.add("Gerlaria");
+			aukerak.add("Baliabideak");
 			if(aukera.equals("Atera") || aukera.equals("Ezer")) {
 				break;
 			}

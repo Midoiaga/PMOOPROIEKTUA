@@ -19,6 +19,7 @@ public class Bizitza extends Atributua {
 		if(urreNahiko(pUrrea)) {
 			if(eraikinak.daukazuEraikina("Zerratokia")!=null) {
 				this.maila++;
+				this.balioa = this.balioa + 2;
 				pUrrea=pUrrea-this.urreKost;
 				this.urreKost=this.urreKost+100+(this.urreKost/4);
 			}

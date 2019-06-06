@@ -92,5 +92,9 @@ public class ListaEraikinak {
 		}
 		return null;
 	}
+
+	public int zenbat() {
+		return this.dituzunEraikinak.size();
+	}
 	
 }

@@ -72,7 +72,6 @@ public class Gerlaria {
 	}
 	
 	private void printAukerak(ArrayList<String> aukerak) {
-		//jokalariak egin ditzakeen akzioak printeatzen ditu
 		System.out.println(this.izena + " hobetzeko dituzun aukerak hauek dira:");
 		for(String aukera : aukerak) System.out.println("-"+aukera);
 	}
@@ -87,13 +86,11 @@ public class Gerlaria {
 	}
 	 
 	public void printGerlaria() {
-		//gerlariari buruzko informazioa printeatzen ditu (pos)
-		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago eta " + this.HP.getBal() +" bizitza puntuak");
+		System.out.println(this.izena + " " + this.posX + "," + this.posY + " posizioan dago eta " + this.HP.getBal() +" bizitza puntuak ditu");
 		System.out.println("Estadistikak: " + " HP=" + this.HP.maila() + " A=" + this.A.maila() + " D="+ this.D.maila() + " V=" + this.V.maila());
 	}
 
 	public void mugitu(int j) {
-		
 		int abiadura = this.V.maila();
 		this.printGerlaria();
 		System.out.println(abiadura + " kasila mugitu daiteke");
@@ -101,13 +98,13 @@ public class Gerlaria {
 		int newPosX = Teklatua.getNireTeklatua().irakurriKoordenatua(MapaPartida.getNireMapa().maxX());
 		System.out.println("Sartu y adratzeko posizio berria: ");
 		int newPosY = Teklatua.getNireTeklatua().irakurriKoordenatua(MapaPartida.getNireMapa().maxY());
-		if(((this.posX-newPosX)+(this.posY-newPosY))<=abiadura) {
+		if((Math.abs(this.posX-newPosX)+Math.abs(this.posY-newPosY))<=abiadura) {
 			this.posX = newPosX;
 			this.posY = newPosY;
 			if(j==1) MapaPartida.getNireMapa().updateJ1(newPosX,newPosY);
 			else MapaPartida.getNireMapa().updateJ2(newPosX,newPosY);
 		}else {
-			System.out.println(abiadura+" kasila baino  gehiago mugitu da");
+			System.out.println(abiadura+" kasila baino gehiago mugitu da");
 			this.mugitu(j);
 		}
 		
