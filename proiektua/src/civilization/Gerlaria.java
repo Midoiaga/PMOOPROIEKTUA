@@ -15,8 +15,9 @@ public class Gerlaria {
 	private int posY;
 	private ArrayList<Hiria> posBerekoHiriak;
 	private ArrayList<Gerlaria> posBerekoGerlariak;
+	private Hiria hiria;
 	
-	public Gerlaria(String pIzena, int pX, int pY) {
+	public Gerlaria(String pIzena, int pX, int pY, Hiria pHiria) {
 		//eraikitzailea
 		this.izena = pIzena;
 		this.HP= new Bizitza();
@@ -27,10 +28,14 @@ public class Gerlaria {
 		this.posY = pY;
 		this.posBerekoHiriak = new ArrayList<Hiria>();
 		this.posBerekoGerlariak = new ArrayList<Gerlaria>();
+		this.hiria = pHiria;
 	}
 	
 	public boolean hildaDago() {
-		if(this.HP.getBal()<=0) return true;
+		if(this.HP.getBal()<=0) {
+			System.out.println("hil naiz :(");
+			return true;
+		}
 		return false;
 	}
 
@@ -158,6 +163,7 @@ public class Gerlaria {
 			if(oraingoHir.getIzena().equals(pHiria)) {
 				int dmg = oraingoHir.erasoJaso(this.A.maila());
 				this.HP.kenduBizitza(dmg);
+				if(this.hildaDago()) this.hilNaiz();
 			}
 		}
 
@@ -172,8 +178,13 @@ public class Gerlaria {
 			if(oraingoGer.getIzena().equals(pGerlaria)) {
 				int dmg = oraingoGer.erasoJaso(this.A.maila());
 				this.HP.kenduBizitza(dmg);
+				if(this.hildaDago()) this.hilNaiz(); 
 			}
 		}
+	}
+	
+	private void hilNaiz() {
+		hiria.sortuGerlaria(this.izena);
 	}
 
 	private String getIzena() {
@@ -182,6 +193,10 @@ public class Gerlaria {
 
 	public int erasoJaso(int pDMG) {
 		this.HP.kenduBizitza(pDMG);
+		if(this.hildaDago()) {
+			this.hilNaiz();
+			return 0;
+		}
 		return this.A.maila();
 	}
 	
