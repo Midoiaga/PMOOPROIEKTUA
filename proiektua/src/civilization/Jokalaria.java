@@ -18,6 +18,10 @@ public class Jokalaria {
 	public void txanda(int j) {
 		System.out.println("");
 		System.out.println(this.izena + "-(r)en txanda");
+		Iterator<Hiria> itrHir = this.getIterHir();
+		while(itrHir.hasNext()) {
+			itrHir.next().baliabideakLortu(10);
+		}
 		this.hiriakAdministratu(j);
 		//this.gerlariakMugitu();
 	}

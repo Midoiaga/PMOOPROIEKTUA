@@ -23,9 +23,9 @@ public class Hiria {
 		this.posX = pPosX;
 		this.posY = pPosY;
 		this.eraikinak = new ListaEraikinak();
-		this.bizitza = 1;
+		this.bizitza = 8;
 		this.gerlaria = null;
-		this.erasoa = 0;
+		this.erasoa = 1;
 	}
 	
 	public String izena() {
@@ -33,11 +33,14 @@ public class Hiria {
 	}
 	
 	public void sortuGerlaria(String pGerIzena) {
+		this.gerlaria = new Gerlaria(pGerIzena, this.posX, this.posY, this);
+	}
+	
+	public void sortuGerlaria() {
 		if(!this.gerlariaExistitzenDa()) {
-			this.gerlaria = new Gerlaria(pGerIzena, this.posX, this.posY);
-		} else {
-			System.out.println("Gerlaria existitzen da jada hiri honetan:");
-			this.gerlaria.printGerlaria();
+			System.out.println("Ba dirudi ez dagoela gerlaririk hiri honetan");
+			System.out.println("Sartu gerlari berriaren izena: ");
+			this.gerlaria = new Gerlaria(Teklatua.getNireTeklatua().irakurriIzena(), this.posX, this.posY, this);
 		}
 	}
 
@@ -53,11 +56,11 @@ public class Hiria {
 	}
 
 	public void administratu(ArrayList<String> pAukerak, int j) {
-		
 		System.out.println("Zer egin nahi duzu:");
 		String aukera=null;
 		this.printAukerak(pAukerak);
 		aukera = Teklatua.getNireTeklatua().getAukerak(pAukerak);
+		this.sortuGerlaria();
 		switch(aukera) {
 		case "Eraiki":
 			
@@ -226,6 +229,12 @@ public class Hiria {
 			return true;
 		}
 		return false;
+	}
+
+	public void baliabideakLortu(int plus) {
+		this.egurra = this.egurra + plus;
+		this.urrea = this.urrea + plus;
+		this.harria = this.harria + plus;
 	}
 }
 

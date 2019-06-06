@@ -80,7 +80,7 @@ public class Civilization {
 			}
 		}
 	}
-	
+
 	public void partida() {
 		this.hasieratu();
 		
