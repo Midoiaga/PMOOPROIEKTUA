@@ -46,7 +46,6 @@ public class Hiria {
 
 	public void print() {
 		System.out.println(izena + " hiria(" + posX + "," + posY + ")" + " HP: " + this.bizitza);
-		
 	}
 	
 	private void printAukerak(ArrayList<String> pAuk) {
@@ -65,17 +64,17 @@ public class Hiria {
 		case "Eraiki":
 			
 			System.out.println("Hiri honen lehengaiak dira :");
-			System.out.println("Urrea: "+this.urrea);
-			System.out.println("Egurra: "+this.egurra);
-			System.out.println("Harria: "+this.harria);
+			System.out.println("-Urrea: "+this.urrea);
+			System.out.println("-Egurra: "+this.egurra);
+			System.out.println("-Harria: "+this.harria);
 			eraikinak.printDaudenak();
 			eraikinak.printFalta();
 			
 			System.out.println("Eraikin bat aukeratu :");
 			aukera = Teklatua.getNireTeklatua().getAukerak(eraikinak.falta());
 			
-			if(aukera.equals("Atera")) {
-				
+			if(aukera.equals("Atera") || aukera.equals("Ezer")) {
+				break;
 			} else {
 				System.out.println("GEG");
 				Eraikina eraikina = eraikinak.bilaturaikina(aukera);
@@ -98,7 +97,9 @@ public class Hiria {
 			this.administratu(pAukerak, j);
 			break;
 		case "Atera":
-			
+			break;
+		case "Ezer":
+			break;
 		}
 		
 	}
@@ -167,7 +168,9 @@ public class Hiria {
 			pAukerak.remove("Mugitu");
 			break;
 		case "Atera":
-				
+			break;
+		case "Ezer":
+			break;
 		}
 	}
 	

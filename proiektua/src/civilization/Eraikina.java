@@ -18,7 +18,7 @@ public class Eraikina {
 
 	public void print() {
 		//
-		System.out.println(izena);	
+		System.out.println("- " + izena);	
 	}
 	
 	public void printKostua() {
