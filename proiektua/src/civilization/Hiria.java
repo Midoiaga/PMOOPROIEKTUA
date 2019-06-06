@@ -25,7 +25,7 @@ public class Hiria {
 		this.eraikinak = new ListaEraikinak();
 		this.bizitza = 100;
 		this.gerlaria = null;
-		this.erasoa = 1;
+		this.erasoa = 2;
 	}
 	
 	public String izena() {
