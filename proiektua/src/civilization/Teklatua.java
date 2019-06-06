@@ -1,4 +1,5 @@
 package civilization;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Teklatua {
@@ -53,5 +54,13 @@ public class Teklatua {
 			izena = this.irakurriIzena();
 		}
 		return izena;
+	}
+	
+	public void irakurri() {
+		try {
+			int sar = System.in.read(new byte[2]);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

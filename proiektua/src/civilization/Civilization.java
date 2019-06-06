@@ -86,6 +86,10 @@ public class Civilization {
 
 	public void partida() {
 		this.hasieratu();
+		System.out.println("Hona hemen hiri guztien posizioak:");
+		System.out.println("(1,1), (3,12), (5,6), (2,7), (5,11), (6,16)");
+		System.out.println("Sakatu ENTER jarraitzeko:");
+		Teklatua.getNireTeklatua().irakurri();
 		
 		int txandaCounter = 0;
 		boolean martxan = true;
